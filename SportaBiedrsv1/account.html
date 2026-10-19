@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mans konts · SportaBiedrs.lv</title>
+<meta name="description" content="Tavas laukumu rezervācijas un veikala pasūtījumi vienuviet.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://sportabiedrs.lv/account">
+<meta property="og:title" content="Mans konts · SportaBiedrs.lv">
+<meta property="og:description" content="Tavas laukumu rezervācijas un veikala pasūtījumi vienuviet.">
+<meta property="og:image" content="https://sportabiedrs.lv/assets/og-image-v3.jpg">
+<meta property="og:url" content="https://sportabiedrs.lv/account">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SportaBiedrs.lv">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mans konts · SportaBiedrs.lv">
+<meta name="twitter:description" content="Tavas laukumu rezervācijas un veikala pasūtījumi vienuviet.">
+<meta name="twitter:image" content="https://sportabiedrs.lv/assets/og-image-v3.jpg">
+<link rel="preload" as="font" href="assets/fonts/roboto-flex-latin-wdth-normal.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="assets/fonts/geologica-latin-wght-normal.woff2" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#121311">
+<link rel="stylesheet" href="tokens.css?v=20">
+<link rel="stylesheet" href="styles.css?v=60">
+<script>if(location.protocol==='http:'&&!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)){location.replace('https://'+location.host+location.pathname+location.search+location.hash)}</script>
+<meta name="robots" content="noindex">
+<script defer crossorigin="anonymous" src="https://relative-blowfish-9974.clerk.accounts.dev/npm/@clerk/ui@1/dist/ui.browser.js"></script>
+<script defer crossorigin="anonymous" data-clerk-publishable-key="pk_test_cmVsYXRpdmUtYmxvd2Zpc2gtOTk3NC5jbGVyay5hY2NvdW50cy5kZXYk" src="https://relative-blowfish-9974.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Pāriet uz saturu</a>
+<header class="site-header is-scrolled">
+ <div class="nav wrap">
+ <div class="nav-left">
+ <a class="wordmark" href="/"><span>Sporta<em>Biedrs</em></span><small>.lv</small></a>
+ <nav aria-label="Galvenā navigācija">
+ <a href="/">Sākums</a>
+ <a href="/#finder">Atrast biedru</a>
+ <a href="/#map">Karte</a>
+ <a href="/#shop">Veikals</a>
+ <a href="solutions.html">Risinājumi</a>
+ <a href="case-studies.html">Stāsti</a>
+ <a href="resources.html">Resursi</a>
+ <a href="about.html">Par mums</a>
+ <a href="contact.html">Kontakti</a>
+ </nav>
+ </div>
+ <div class="nav-right">
+ <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Atvērt izvēlni" aria-expanded="false" aria-controls="mobileNavPanel"><span></span><span></span><span></span></button>
+ </div>
+ </div>
+</header>
+<div class="mobile-nav-scrim" id="mobileNavScrim" hidden></div>
+<div class="mobile-nav-panel" id="mobileNavPanel" hidden>
+ <nav aria-label="Mobilā navigācija">
+ <a href="/">Sākums</a>
+ <a href="/#finder">Atrast biedru</a>
+ <a href="/#map">Karte</a>
+ <a href="/#shop">Veikals</a>
+ <a href="solutions.html">Risinājumi</a>
+ <a href="case-studies.html">Stāsti</a>
+ <a href="resources.html">Resursi</a>
+ <a href="about.html">Par mums</a>
+ <a href="contact.html">Kontakti</a>
+ </nav>
+</div>
+
+<main id="content">
+ <section class="legal-hero"><div class="wrap">
+ <p class="eyebrow">Mans konts</p>
+ <h1>Manas rezervācijas un pasūtījumi</h1>
+ <p id="accSub">Ielogojies, lai redzētu savas laukumu rezervācijas un veikala pasūtījumus.</p>
+ </div></section>
+ <div class="wrap subpage-main-pad">
+ <div id="accGate" class="contact-form-card" hidden><h2>Nepieciešama pieteikšanās</h2><p class="form-intro">Lai redzētu savu kontu, ienāc vai reģistrējies.</p>
+ <button type="button" class="btn btn-solid" id="accSignIn">Ienākt</button> <button type="button" class="btn btn-quiet" id="accSignUp">Reģistrēties</button></div>
+ <div id="accMain" hidden>
+ <div id="accStatus" class="contact-success-state" role="status" aria-live="polite" hidden></div>
+ <h2>Laukumu rezervācijas</h2><div id="accBookings" class="acc-list"><p>Ielādē…</p></div>
+ <h2 style="margin-top:2.5rem">Veikala pasūtījumi</h2><div id="accOrders" class="acc-list"><p>Ielādē…</p></div>
+ </div>
+ <div id="accModal" style="display:none"></div>
+ </div>
+</main>
+<style>
+.acc-list{display:grid;gap:12px;margin-top:12px}
+.acc-card{border:1px solid var(--line,#d9d6cc);background:var(--paper,#fbfaf6);padding:16px 18px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between}
+.acc-card strong{display:block}.acc-card small{color:#5a5b53}
+.acc-badge{font-size:.78rem;padding:2px 8px;border:1px solid currentColor;text-transform:uppercase;letter-spacing:.04em}
+.acc-badge.ok{color:#2f7a4b}.acc-badge.wait{color:#8a6a00}.acc-badge.off{color:#6b6c64}
+</style>
+
+<footer class="site-footer">
+ <div class="wrap footer-grid">
+ <div>
+ <a class="wordmark light" href="/">Sporta<em>Biedrs</em><small>.lv</small></a>
+ <p>Sporta partneru, vietu, ziņu un ekipējuma platforma Latvijā.</p>
+ </div>
+ <div>
+ <strong>Platforma</strong>
+ <a href="/#finder">Atrast biedru</a>
+ <a href="/#map">Karte</a>
+ <a href="/#shop">Veikals</a>
+ <a href="solutions.html">Risinājumi</a>
+ <a href="case-studies.html">Pieredzes stāsti</a>
+ </div>
+ <div>
+ <strong>Informācija</strong>
+ <a href="about.html">Par mums</a>
+ <a href="resources.html">Resursi & Ceļveži</a>
+ <a href="contact.html">Kontakti</a>
+ <a href="accessibility.html">Pieejamība</a>
+ </div>
+ <div>
+ <strong>Juridiski</strong>
+ <a href="terms.html">Pirkumu noteikumi</a>
+ <a href="delivery-returns.html">Piegāde un atgriešana</a>
+ <a href="withdrawal.html">Atteikuma veidlapa</a>
+ <a href="privacy.html">Privātuma politika</a>
+ <a href="cookies.html">Sīkdatņu politika</a>
+ </div>
+ </div>
+ <div class="footer-mega" aria-hidden="true">SportaBiedrs</div>
+ <div class="wrap footer-bottom">
+ <span>© 2026 SportaBiedrs.lv</span>
+ <span>Rīga · Latvija</span>
+ </div>
+</footer>
+<script>
+(function(){
+ var $=function(i){return document.getElementById(i)};
+ var eur=function(c){return (c/100).toFixed(2).replace('.',',')+' €'};
+ var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+ var BST={confirmed:['Apstiprināta','ok'],pending:['Gaida apmaksu','wait'],refunded:['Atcelta, atmaksāts','off'],cancelled:['Atcelta','off']};
+ var OST={new:['Pieņemts','wait'],pending_payment:['Gaida apmaksu','wait'],paid:['Apmaksāts','ok'],cancelled:['Atcelts','off']};
+ var clerk;
+ function status(t,err){var b=$('accStatus');b.textContent=t;b.classList.toggle('is-error',!!err);b.hidden=false}
+ async function api(path,opts){
+  var tok=await clerk.session.getToken();
+  opts=opts||{};opts.headers=Object.assign({Accept:'application/json','Content-Type':'application/json',Authorization:'Bearer '+tok},opts.headers||{});
+  var r=await fetch(path,opts);var j=null;try{j=await r.json()}catch(e){}
+  return {ok:r.ok,status:r.status,json:j};
+ }
+ function fmtDate(iso){return new Intl.DateTimeFormat('lv-LV',{timeZone:'Europe/Riga',dateStyle:'long'}).format(new Date(iso))}
+ async function loadBookings(){
+  var host=$('accBookings'),r=await api('/api/bookings');
+  if(r.status===503||r.status===404){host.innerHTML='<p>Rezervāciju sistēma vēl nav ieslēgta.</p>';return}
+  if(!r.ok){host.innerHTML='<p>Neizdevās ielādēt rezervācijas.</p>';return}
+  if(!r.json.length){host.innerHTML='<p>Tev vēl nav rezervāciju. <a href="/#map">Atrodi laukumu kartē →</a></p>';return}
+  host.innerHTML=r.json.map(function(b){var s=BST[b.status]||[b.status,'off'];
+   return '<div class="acc-card"><div><strong>'+esc(b.venue)+' · '+esc(b.court)+'</strong><small>'+esc(fmtDate(b.start))+', '+esc(b.localStart)+'–'+esc(b.localEnd)+' · '+esc(b.address||'')+', '+esc(b.city||'')+'</small></div>'
+   +'<div><span class="acc-badge '+s[1]+'">'+s[0]+'</span> <strong>'+eur(b.amountCents)+'</strong> '
+   +(b.canCancel?'<button type="button" class="btn btn-quiet" data-cancel="'+esc(b.id)+'">Atcelt</button>':'')+'</div></div>'}).join('');
+  host.querySelectorAll('[data-cancel]').forEach(function(btn){btn.addEventListener('click',async function(){
+   if(!confirm('Atcelt rezervāciju? Maksājums tiks atmaksāts pilnā apmērā.'))return;
+   btn.disabled=true;var c=await api('/api/bookings/cancel',{method:'POST',body:JSON.stringify({id:btn.getAttribute('data-cancel')})});
+   if(c.ok){status('Rezervācija atcelta, atmaksa nosūtīta.');loadBookings()}else{status(c.json&&c.json.code==='TOO_LATE_TO_CANCEL'?'Bezmaksas atcelšana beidzas 24 stundas pirms sākuma.':'Neizdevās atcelt. Pamēģini vēlreiz.',true);btn.disabled=false}
+  })});
+ }
+ async function loadOrders(){
+  var host=$('accOrders'),r=await api('/api/orders');
+  if(r.status===503||r.status===404){host.innerHTML='<p>Pasūtījumu vēsture vēl nav ieslēgta.</p>';return}
+  if(!r.ok){host.innerHTML='<p>Neizdevās ielādēt pasūtījumus.</p>';return}
+  if(!r.json.length){host.innerHTML='<p>Tev vēl nav pasūtījumu. <a href="/#shop">Uz veikalu →</a></p>';return}
+  host.innerHTML=r.json.map(function(o){var s=OST[o.status]||[o.status,'off'];
+   return '<div class="acc-card"><div><strong>'+esc(o.id)+'</strong><small>'+esc(fmtDate(o.createdAt))+' · '+(o.items||[]).map(function(i){return esc(i.quantity+'× '+i.name+(i.variant?' ('+i.variant+')':''))}).join(', ')+'</small></div>'
+   +'<div><span class="acc-badge '+s[1]+'">'+s[0]+'</span> <strong>'+eur(o.totalCents)+'</strong></div></div>'}).join('');
+ }
+ async function init(){
+  var n=0;while(!window.Clerk&&n<150){await new Promise(function(r){setTimeout(r,100)});n++}
+  if(!window.Clerk){$('accGate').hidden=false;return}
+  try{await window.Clerk.load({localization:{locale:'lv-LV'},ui:window.__internal_ClerkUICtor?{ClerkUI:window.__internal_ClerkUICtor}:undefined})}catch(e){console.error(e)}
+  clerk=window.Clerk;
+  function render(){
+   if(clerk.isSignedIn){$('accGate').hidden=true;$('accMain').hidden=false;$('accSub').textContent='Sveiki, '+(clerk.user&&(clerk.user.firstName||clerk.user.fullName)||'')+'!';loadBookings();loadOrders()}
+   else{$('accMain').hidden=true;$('accGate').hidden=false}
+  }
+  clerk.addListener(render);render();
+  $('accSignIn').addEventListener('click',function(){clerk.openSignIn({redirectUrl:location.href})});
+  $('accSignUp').addEventListener('click',function(){clerk.openSignUp({redirectUrl:location.href})});
+ }
+ init();
+})();
+</script>
+<script>
+ (function(){
+ var t=document.getElementById('mobileNavToggle');
+ var p=document.getElementById('mobileNavPanel');
+ var s=document.getElementById('mobileNavScrim');
+ if(t&&p&&s){
+ function toggle(open){
+ var o=open!==undefined?open:p.hidden;
+ p.hidden=!o;
+ s.hidden=!o;
+ p.classList.toggle('open',o);
+ t.setAttribute('aria-expanded',String(o));
+ document.body.classList.toggle('no-scroll',o);
+ }
+ t.addEventListener('click',function(){toggle();});
+ s.addEventListener('click',function(){toggle(false);});
+ }
+ })();
+</script>
+</body>
+</html>

@@ -33,14 +33,52 @@ function resolveFile(urlPath) {
   return null;
 }
 
+/** Maps /api/a/b to api/a/b.js, api/a/b/index.js, or dynamic folders like api/venues/[id]/slots.js. */
+function resolveApi(rel) {
+  const segs = rel.split('/').filter(Boolean);
+  if (!segs.length || segs.some((s) => !/^[A-Za-z0-9_-]+$/.test(s) || s.startsWith('_'))) return null;
+  const apiRoot = path.join(root, 'api');
+  function walk(dir, i, params) {
+    if (i === segs.length) {
+      const idx = path.join(dir, 'index.js');
+      return fs.existsSync(idx) ? { file: idx, params } : null;
+    }
+    const seg = segs[i];
+    if (i === segs.length - 1) {
+      const f = path.join(dir, seg + '.js');
+      if (fs.existsSync(f)) return { file: f, params };
+    }
+    const exact = path.join(dir, seg);
+    if (fs.existsSync(exact) && fs.statSync(exact).isDirectory()) {
+      const r = walk(exact, i + 1, params);
+      if (r) return r;
+    }
+    if (fs.existsSync(dir)) {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const m = /^\[([A-Za-z0-9_]+)\]$/.exec(e.name);
+        if (!m) continue;
+        if (e.isDirectory()) {
+          const r = walk(path.join(dir, e.name), i + 1, { ...params, [m[1]]: seg });
+          if (r) return r;
+        } else if (i === segs.length - 1) {
+          return { file: path.join(dir, e.name), params: { ...params, [m[1]]: seg } };
+        }
+      }
+    }
+    return null;
+  }
+  return walk(apiRoot, 0, {});
+}
+
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   if (url.pathname.startsWith('/api/')) {
-    const name = url.pathname.slice(5).replace(/\/+$/, '');
-    const file = /^[a-z0-9-]+$/.test(name) ? path.join(root, 'api', name + '.js') : null;
-    if (!file || !fs.existsSync(file)) { res.statusCode = 404; return res.end('{"error":"Not found"}'); }
-    delete require.cache[require.resolve(file)];
-    try { return await require(file)(req, res); } catch (e) { console.error(e); res.statusCode = 500; return res.end('{"error":"Server error"}'); }
+    const match = resolveApi(url.pathname.slice(5));
+    if (!match) { res.statusCode = 404; res.setHeader('Content-Type', 'application/json'); return res.end('{"error":"Not found"}'); }
+    // Vercel gives every function req.query = search params + dynamic route params.
+    req.query = { ...Object.fromEntries(url.searchParams), ...match.params };
+    delete require.cache[require.resolve(match.file)];
+    try { return await require(match.file)(req, res); } catch (e) { console.error(e); res.statusCode = 500; return res.end('{"error":"Server error"}'); }
   }
   const file = resolveFile(url.pathname === '/' ? '/index.html' : url.pathname);
   if (!file) {

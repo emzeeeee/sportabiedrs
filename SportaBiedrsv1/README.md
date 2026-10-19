@@ -32,6 +32,34 @@ Prices are ONLY read from that file on the server.
 4. Verify your sending domain in Resend.
 5. Fill in the real seller details in the legal pages (terms, privacy).
 
+## Bookings, accounts, clubs (new)
+
+Everything below is additive. If `DATABASE_URL` is missing these endpoints answer 503 and the site keeps working with its built-in fallbacks.
+
+| Endpoint | What it does |
+|---|---|
+| `GET /api/venues` | Bookable venues (only those with at least one active court) |
+| `GET /api/venues/:id/slots?date=YYYY-MM-DD` | Free/busy hourly slots, venue-local time |
+| `POST /api/bookings/checkout` | Login required. Holds the slot 15 min, creates a Stripe PaymentIntent with the server-side price |
+| `GET /api/bookings`, `POST /api/bookings/cancel` | My bookings; free cancellation with full refund up to 24 h before start |
+| `GET/POST /api/clubs` | Approved clubs for the map / club application form |
+| `GET /api/orders`, `GET /api/me` | Shop order history and profile for the signed-in user |
+| `/api/admin` | Admin only (`x-admin-token`): applications, venues, courts, bookings, orders |
+
+Pages: `account.html` (my bookings and orders), `club-register.html` (club application).
+
+**Setup**
+1. Vercel > Storage > connect a Postgres (Neon). Tables are created automatically on first request.
+2. Set `CLERK_SECRET_KEY`, `ADMIN_TOKEN`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET` (see `env.example`).
+3. Stripe webhook endpoint `https://YOUR-SITE/api/stripe-webhook`, events: `checkout.session.completed`, `payment_intent.succeeded`, `payment_intent.canceled`.
+4. Make a venue bookable (nothing is bookable until you do this):
+```
+curl -X POST https://YOUR-SITE/api/admin -H "x-admin-token: $ADMIN_TOKEN" -H "content-type: application/json" \
+ -d '{"action":"upsert_venue","venue":{"name":"MH Padel Club","sport_key":"padel","city":"Mārupe","address":"Mārupes Parks 1"},"courts":[{"name":"Court 1","price_eur":20}]}'
+```
+The venue name must match the name already on the map. Club applications: `GET /api/admin?view=applications`, then `{"action":"review_application","id":"app_...","decision":"approve","lat":56.9,"lng":24.1,"courts":[{"name":"Court 1","price_eur":18}]}`.
+
+Rules: 15 min payment hold, no double booking (row lock), bookable 30 min to 60 days ahead, late payment after an expired hold is revived if the slot is still free, otherwise refunded automatically.
+
 ## Not built yet
-Bookings (`/api/bookings/checkout`, `/api/venues/:id/slots`) need a database (e.g. Supabase or Neon).
-Order history also needs one; for now the email is the order record.
+Email reminders before a booking, club self-service dashboard, and admin screens (admin is API-only for now).

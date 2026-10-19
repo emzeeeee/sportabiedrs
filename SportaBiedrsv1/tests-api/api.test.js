@@ -132,3 +132,11 @@ test('every self-hosted font referenced in tokens.css exists and is served', asy
     assert.ok((await r.arrayBuffer()).byteLength > 5000, `${f} looks empty`);
   }
 });
+
+test('new pages are served and the dev server still hides private files', async () => {
+  const http = require('node:http');
+  const get = (p) => new Promise((res) => http.get(base + p, (r) => { r.resume(); res(r.statusCode); }));
+  assert.equal(await get('/account.html'), 200);
+  assert.equal(await get('/club-register.html'), 200);
+  assert.equal(await get('/api/_lib/db.js'), 404);
+});

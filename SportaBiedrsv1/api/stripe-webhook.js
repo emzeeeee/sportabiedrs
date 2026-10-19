@@ -3,12 +3,18 @@
  * Stripe calls this after a payment. We verify the signature (HMAC, no SDK
  * needed) and email the owner an order notification.
  * In Stripe Dashboard add endpoint https://YOUR-SITE/api/stripe-webhook for the
- * event checkout.session.completed and put its signing secret in
- * STRIPE_WEBHOOK_SECRET. */
+ * events checkout.session.completed, payment_intent.succeeded and
+ * payment_intent.canceled, and put its signing secret in STRIPE_WEBHOOK_SECRET.
+ *  - checkout.session.completed : shop order paid -> order marked paid + owner email
+ *  - payment_intent.succeeded   : court booking paid -> booking confirmed (or auto-refunded if the slot was lost)
+ *  - payment_intent.canceled    : booking hold released */
 
 const crypto = require('crypto');
 const { send, readRaw, escHtml } = require('./_lib/http');
 const { sendMail, ownerAddress } = require('./_lib/mail');
+const db = require('./_lib/db');
+const { markPaid } = require('./_lib/orders-db');
+const { confirmPaid } = require('./_lib/booking');
 
 const TOLERANCE_SECONDS = 300;
 
@@ -31,22 +37,29 @@ async function handle(req, res) {
   if (!verify(raw, req.headers['stripe-signature'], secret)) return send(res, 400, { error: 'Bad signature' });
 
   const event = JSON.parse(raw);
-  if (event.type === 'checkout.session.completed') {
-    const s = event.data.object;
+  const obj = event.data?.object || {};
+
+  if (event.type === 'checkout.session.completed' && obj.payment_status === 'paid') {
+    const m = obj.metadata || {};
+    const first = m.order_id ? await markPaid(m.order_id) : true; // false = Stripe retried, already handled
     const owner = ownerAddress();
-    if (owner && s.payment_status === 'paid') {
-      const m = s.metadata || {};
-      const eur = (s.amount_total / 100).toFixed(2);
+    if (owner && first) {
+      const eur = (obj.amount_total / 100).toFixed(2);
       await sendMail({
         to: owner,
-        subject: `Apmaksāts pasūtījums (${eur} €)`,
+        subject: `Apmaksāts pasūtījums ${m.order_id || ''} (${eur} €)`.trim(),
         html: `<div style="font-family:system-ui,sans-serif"><h2>Stripe maksājums saņemts: ${escHtml(eur)} €</h2>
-<p>${escHtml(m.customer_name)} · ${escHtml(s.customer_details?.email || s.customer_email)}</p>
+<p>Pasūtījums ${escHtml(m.order_id)} · ${escHtml(m.customer_name)} · ${escHtml(obj.customer_details?.email || obj.customer_email)}</p>
 <p><strong>Preces:</strong> ${escHtml(m.items)}</p>
 <p><strong>Piegāde:</strong> ${escHtml(m.delivery_method)} → ${escHtml(m.delivery_destination)}</p>
-<p>Stripe session: ${escHtml(s.id)}</p></div>`,
+<p>Stripe session: ${escHtml(obj.id)}</p></div>`,
       }).catch((e) => console.error('[mail]', e.message));
     }
+  } else if (event.type === 'payment_intent.succeeded' && obj.metadata?.booking_id && db.configured()) {
+    // A failure here must make Stripe retry, so let it throw (-> 500).
+    await confirmPaid({ bookingId: obj.metadata.booking_id, paymentIntentId: obj.id });
+  } else if (event.type === 'payment_intent.canceled' && obj.metadata?.booking_id && db.configured()) {
+    await db.query(`UPDATE bookings SET status = 'expired', expires_at = now() WHERE id = $1 AND status = 'pending'`, [obj.metadata.booking_id]);
   }
   return send(res, 200, { received: true });
 }

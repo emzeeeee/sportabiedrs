@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pievieno savu klubu · SportaBiedrs.lv</title>
+<meta name="description" content="Pieteikums sporta klubiem un laukumu īpašniekiem: pievieno savu vietu SportaBiedrs.lv kartei un ieslēdz tiešsaistes rezervācijas.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://sportabiedrs.lv/club-register">
+<meta property="og:title" content="Pievieno savu klubu · SportaBiedrs.lv">
+<meta property="og:description" content="Pieteikums sporta klubiem un laukumu īpašniekiem: pievieno savu vietu SportaBiedrs.lv kartei un ieslēdz tiešsaistes rezervācijas.">
+<meta property="og:image" content="https://sportabiedrs.lv/assets/og-image-v3.jpg">
+<meta property="og:url" content="https://sportabiedrs.lv/club-register">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SportaBiedrs.lv">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pievieno savu klubu · SportaBiedrs.lv">
+<meta name="twitter:description" content="Pieteikums sporta klubiem un laukumu īpašniekiem: pievieno savu vietu SportaBiedrs.lv kartei un ieslēdz tiešsaistes rezervācijas.">
+<meta name="twitter:image" content="https://sportabiedrs.lv/assets/og-image-v3.jpg">
+<link rel="preload" as="font" href="assets/fonts/roboto-flex-latin-wdth-normal.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="assets/fonts/geologica-latin-wght-normal.woff2" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#121311">
+<link rel="stylesheet" href="tokens.css?v=20">
+<link rel="stylesheet" href="styles.css?v=60">
+<script>if(location.protocol==='http:'&&!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)){location.replace('https://'+location.host+location.pathname+location.search+location.hash)}</script>
+<script defer crossorigin="anonymous" src="https://relative-blowfish-9974.clerk.accounts.dev/npm/@clerk/ui@1/dist/ui.browser.js"></script>
+<script defer crossorigin="anonymous" data-clerk-publishable-key="pk_test_cmVsYXRpdmUtYmxvd2Zpc2gtOTk3NC5jbGVyay5hY2NvdW50cy5kZXYk" src="https://relative-blowfish-9974.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Pāriet uz saturu</a>
+<header class="site-header is-scrolled">
+ <div class="nav wrap">
+ <div class="nav-left">
+ <a class="wordmark" href="/"><span>Sporta<em>Biedrs</em></span><small>.lv</small></a>
+ <nav aria-label="Galvenā navigācija">
+ <a href="/">Sākums</a>
+ <a href="/#finder">Atrast biedru</a>
+ <a href="/#map">Karte</a>
+ <a href="/#shop">Veikals</a>
+ <a href="solutions.html">Risinājumi</a>
+ <a href="case-studies.html">Stāsti</a>
+ <a href="resources.html">Resursi</a>
+ <a href="about.html">Par mums</a>
+ <a href="contact.html">Kontakti</a>
+ </nav>
+ </div>
+ <div class="nav-right">
+ <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Atvērt izvēlni" aria-expanded="false" aria-controls="mobileNavPanel"><span></span><span></span><span></span></button>
+ </div>
+ </div>
+</header>
+<div class="mobile-nav-scrim" id="mobileNavScrim" hidden></div>
+<div class="mobile-nav-panel" id="mobileNavPanel" hidden>
+ <nav aria-label="Mobilā navigācija">
+ <a href="/">Sākums</a>
+ <a href="/#finder">Atrast biedru</a>
+ <a href="/#map">Karte</a>
+ <a href="/#shop">Veikals</a>
+ <a href="solutions.html">Risinājumi</a>
+ <a href="case-studies.html">Stāsti</a>
+ <a href="resources.html">Resursi</a>
+ <a href="about.html">Par mums</a>
+ <a href="contact.html">Kontakti</a>
+ </nav>
+</div>
+
+<main id="content">
+ <section class="legal-hero"><div class="wrap">
+ <p class="eyebrow">Klubiem un laukumu īpašniekiem</p>
+ <h1>Pievieno savu klubu SportaBiedrs.lv</h1>
+ <p>Aizpildi pieteikumu — mēs to pārskatīsim, uzliksim klubu kartē un, ja vēlies, ieslēgsim tiešsaistes laukumu rezervācijas bez komisijas no tavas laukumu īres.</p>
+ </div></section>
+ <div class="wrap subpage-main-pad"><div class="contact-grid">
+ <div class="contact-form-card">
+ <h2>Kluba pieteikums</h2>
+ <p class="form-intro">Visi lauki ar * ir obligāti. Atbildēsim uz norādīto e-pastu 1–2 darba dienu laikā.</p>
+ <form id="clubForm" novalidate>
+ <div class="contact-row">
+ <label class="field"><span>Kluba nosaukums *</span><input type="text" name="name" maxlength="120" required autocomplete="organization"></label>
+ <label class="field"><span>Kontaktpersona *</span><input type="text" name="contact_name" maxlength="120" required autocomplete="name"></label>
+ </div>
+ <div class="contact-row">
+ <label class="field"><span>E-pasts *</span><input type="email" name="email" maxlength="254" required autocomplete="email"></label>
+ <label class="field"><span>Tālrunis</span><input type="tel" name="phone" maxlength="40" autocomplete="tel"></label>
+ </div>
+ <div class="contact-row">
+ <label class="field"><span>Pilsēta *</span><input type="text" name="city" maxlength="80" required></label>
+ <label class="field"><span>Adrese *</span><input type="text" name="address" maxlength="200" required autocomplete="street-address"></label>
+ </div>
+ <div class="contact-row">
+ <label class="field"><span>Sporta veids *</span><select name="sport_key" required><option value="" disabled selected>Izvēlies…</option><option value="padel">Padel</option><option value="tennis">Teniss</option><option value="basketball">Basketbols</option><option value="football">Futbols</option><option value="volleyball">Volejbols</option><option value="fitness">Fitnesa zāle</option><option value="climbing">Klinšu kāpšana</option><option value="boxing">Bokss / MMA</option><option value="cycling">Velosports</option><option value="discgolf">Diska golfs</option><option value="extreme">Ekstrēmie sporti</option><option value="swimming">Peldēšana</option><option value="running">Skriešana</option><option value="golf">Golfs</option><option value="hockey">Hokejs</option><option value="badminton">Badmintons</option><option value="tabletennis">Galda teniss</option><option value="other">Cits</option></select></label>
+ <label class="field"><span>Mājaslapa</span><input type="url" name="website" maxlength="300" placeholder="https://"></label>
+ </div>
+ <label class="field"><span>Ziņa (laukumu skaits, cenas, darba laiks…)</span><textarea name="message" rows="5" maxlength="2000"></textarea></label>
+ <input type="text" name="website_url" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+ <p class="contact-consent">Nosūtot pieteikumu, tu piekrīti datu apstrādei saskaņā ar mūsu <a href="privacy.html">Privātuma politiku</a>.</p>
+ <button type="submit" class="btn btn-solid" id="clubSubmit">Nosūtīt pieteikumu →</button>
+ </form>
+ <div id="clubResult" class="contact-success-state" role="status" aria-live="polite" hidden></div>
+ </div>
+ <div class="contact-info-cards"><div class="contact-card contact-card--accent"><div><strong>Kas notiks tālāk?</strong>
+ <p>1. Mēs pārbaudām pieteikumu.<br>2. Uzliekam klubu kartē.<br>3. Pēc vēlēšanās pievienojam laukumus un cenas — klienti varēs rezervēt un samaksāt tiešsaistē.</p></div></div></div>
+ </div></div>
+</main>
+
+<footer class="site-footer">
+ <div class="wrap footer-grid">
+ <div>
+ <a class="wordmark light" href="/">Sporta<em>Biedrs</em><small>.lv</small></a>
+ <p>Sporta partneru, vietu, ziņu un ekipējuma platforma Latvijā.</p>
+ </div>
+ <div>
+ <strong>Platforma</strong>
+ <a href="/#finder">Atrast biedru</a>
+ <a href="/#map">Karte</a>
+ <a href="/#shop">Veikals</a>
+ <a href="solutions.html">Risinājumi</a>
+ <a href="case-studies.html">Pieredzes stāsti</a>
+ </div>
+ <div>
+ <strong>Informācija</strong>
+ <a href="about.html">Par mums</a>
+ <a href="resources.html">Resursi & Ceļveži</a>
+ <a href="contact.html">Kontakti</a>
+ <a href="accessibility.html">Pieejamība</a>
+ </div>
+ <div>
+ <strong>Juridiski</strong>
+ <a href="terms.html">Pirkumu noteikumi</a>
+ <a href="delivery-returns.html">Piegāde un atgriešana</a>
+ <a href="withdrawal.html">Atteikuma veidlapa</a>
+ <a href="privacy.html">Privātuma politika</a>
+ <a href="cookies.html">Sīkdatņu politika</a>
+ </div>
+ </div>
+ <div class="footer-mega" aria-hidden="true">SportaBiedrs</div>
+ <div class="wrap footer-bottom">
+ <span>© 2026 SportaBiedrs.lv</span>
+ <span>Rīga · Latvija</span>
+ </div>
+</footer>
+<script>
+(function(){
+ var form=document.getElementById('clubForm'),box=document.getElementById('clubResult'),btn=document.getElementById('clubSubmit');
+ var msgs={BAD_NAME:'Ievadi kluba nosaukumu.',BAD_CONTACT:'Ievadi kontaktpersonas vārdu.',BAD_EMAIL:'Pārbaudi e-pasta adresi.',BAD_ADDRESS:'Ievadi pilsētu un adresi.',BAD_SPORT:'Izvēlies sporta veidu.',BAD_WEBSITE:'Mājaslapai jāsākas ar http:// vai https://',RATE_LIMITED:'Pārāk daudz mēģinājumu. Pamēģini vēlāk.'};
+ function show(t,err){box.textContent=t;box.classList.toggle('is-error',!!err);box.hidden=false}
+ form.addEventListener('submit',async function(e){
+  e.preventDefault();
+  if(!form.checkValidity()){form.reportValidity();return}
+  var data={};new FormData(form).forEach(function(v,k){data[k]=String(v).trim()});
+  btn.disabled=true;btn.setAttribute('aria-busy','true');
+  try{
+   var r=await fetch('/api/clubs',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+   var j={};try{j=await r.json()}catch(x){}
+   if(r.ok){form.reset();form.hidden=true;show('Paldies! Pieteikums saņemts. Atbildēsim uz '+data.email+' 1–2 darba dienu laikā.');return}
+   if(r.status===503||r.status===404){show('Pieteikumu forma šobrīd nav pieejama. Raksti mums uz info@sportabiedrs.lv.',true);return}
+   show(msgs[j.code]||'Neizdevās nosūtīt. Pamēģini vēlreiz vai raksti uz info@sportabiedrs.lv.',true);
+  }catch(x){show('Savienojuma kļūda. Pamēģini vēlreiz.',true)}
+  finally{btn.disabled=false;btn.removeAttribute('aria-busy')}
+ });
+})();
+</script>
+<script>
+ (function(){
+ var t=document.getElementById('mobileNavToggle');
+ var p=document.getElementById('mobileNavPanel');
+ var s=document.getElementById('mobileNavScrim');
+ if(t&&p&&s){
+ function toggle(open){
+ var o=open!==undefined?open:p.hidden;
+ p.hidden=!o;
+ s.hidden=!o;
+ p.classList.toggle('open',o);
+ t.setAttribute('aria-expanded',String(o));
+ document.body.classList.toggle('no-scroll',o);
+ }
+ t.addEventListener('click',function(){toggle();});
+ s.addEventListener('click',function(){toggle(false);});
+ }
+ })();
+</script>
+</body>
+</html>

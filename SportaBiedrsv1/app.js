@@ -191,6 +191,11 @@ function toast(m, opts={}){
  * endpoint that is not deployed at all (returns null so callers can degrade).   */
 const API_ROUTE_CACHE={};
 async function apiFetch(name,opts={}){
+  /* Signed-in customers: attach the Clerk session so orders appear in their account. */
+  try{
+    const tok=await window.Clerk?.session?.getToken?.();
+    if(tok)opts={...opts,headers:{...(opts.headers||{}),Authorization:`Bearer ${tok}`}};
+  }catch(e){}
   const cached=API_ROUTE_CACHE[name];
   if(cached==='missing') return null;
   const candidates=cached?[cached]:[`/api/${name}`,`/.netlify/functions/${name}`];
@@ -1144,7 +1149,8 @@ async function confirmBooking(){
    if(!courtId)throw new Error('COURT_MAPPING_REQUIRED');
    const name=[user.firstName,user.lastName].filter(Boolean).join(' ')||user.fullName||'';
    window.__bookingRequestKey=window.__bookingRequestKey||newBookingRequestKey();
-   const r=await fetch('/api/bookings/checkout',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json','Idempotency-Key':window.__bookingRequestKey},body:JSON.stringify({court_id:courtId,start_time:start,end_time:endIso,user:{email,name,first_name:user.firstName||'',last_name:user.lastName||''}})});
+   const authToken=await clerk.session?.getToken?.().catch(()=>null);
+   const r=await fetch('/api/bookings/checkout',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json','Idempotency-Key':window.__bookingRequestKey,...(authToken?{Authorization:`Bearer ${authToken}`}:{})},body:JSON.stringify({court_id:courtId,start_time:start,end_time:endIso,user:{email,name,first_name:user.firstName||'',last_name:user.lastName||''}})});
    const data=await r.json().catch(()=>({}));
    if(r.status===401){openClerkAuth('signin');throw new Error('AUTH_REQUIRED')}
    if(!r.ok||!data.clientSecret)throw new Error(data.error||`HTTP_${r.status}`);
@@ -2372,8 +2378,28 @@ function initMobileNav(){
  window.addEventListener('resize',()=>{if(window.innerWidth>760) close()},{passive:true});
 }
 
+/* Clubs registered through /club-register.html and approved by an admin join the map.
+   Purely additive: any failure leaves the built-in venue list untouched. */
+async function mergeRegisteredClubs(){
+ try{
+  const response=await fetch('/api/clubs',{headers:{Accept:'application/json'}});
+  if(!response.ok)return;
+  const rows=await response.json();
+  if(!Array.isArray(rows)||!rows.length)return;
+  const labels={};VENUES.forEach(v=>{if(v.sportKey&&!labels[v.sportKey])labels[v.sportKey]=v.sport});
+  let added=false;
+  rows.forEach(c=>{
+   if(!c||!c.name||typeof c.lat!=='number'||typeof c.lng!=='number')return;
+   if(VENUES.some(v=>norm(v.name)===norm(c.name)))return;
+   VENUES.push({name:c.name,sportKey:c.sportKey,sport:labels[c.sportKey]||c.sportKey||'',city:c.city||'',address:c.address||'',lat:c.lat,lng:c.lng,price:'',priceValue:999,rating:0,reviews:0,verified:true,bookable:false,website:c.website||'',gmaps:`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([c.name,c.address,c.city].filter(Boolean).join(' '))}`});
+   added=true;
+  });
+  return added;
+ }catch(error){console.warn('[SportaBiedrs] clubs',error);return false}
+}
 async function syncBookingMappings(){
  try{
+  await mergeRegisteredClubs();
   const response=await fetch('/api/venues',{headers:{Accept:'application/json'}});
   if(!response.ok){window.__SB_BOOKING_BACKEND_AVAILABLE=false;return;}
   const rows=await response.json();

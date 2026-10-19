@@ -15,9 +15,13 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
     "@types/node": "^26.6.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jose": "^6.2.12",
+    "pg": "^8.23.1"
+  },
   "private": true,
   "engines": {
     "node": ">=20"
