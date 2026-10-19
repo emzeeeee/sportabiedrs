@@ -1,0 +1,718 @@
+{
+  "Aglona": [
+    "Aglonas TOP pakomāts - Somersētas iela 33"
+  ],
+  "Aizkraukle": [
+    "Aizkraukles T/C Iga pakomāts - Gaismas iela 35",
+    "Aizkraukles TOP pakomāts - Lāčplēša iela 7"
+  ],
+  "Aizpute": [
+    "Aizputes Zvaigžņu ielas AIBE pakomāts - Zvaigžņu iela 2B"
+  ],
+  "Aknīste": [
+    "Aknīstes VESKO pakomāts - Skolas iela 5"
+  ],
+  "Aloja": [
+    "Alojas Mini TOP pakomāts - Rīgas iela 1B"
+  ],
+  "Alūksne": [
+    "Alūksnes Maxima X pakomāts - Pils iela 9B",
+    "Alūksnes Pils ielas TOP pakomāts - Pils iela 38A"
+  ],
+  "Ance": [
+    "Ances pakomāts"
+  ],
+  "Ape": [
+    "Apes TOP pakomāts - Stacijas iela 4"
+  ],
+  "Auce": [
+    "Auces TOP pakomāts - Baznīcas iela 1"
+  ],
+  "Auciems": [
+    "Auciema pakomāts"
+  ],
+  "Augstkalne": [
+    "Augstkalnes pakomāts"
+  ],
+  "Augšlīgatne": [
+    "Augšlīgatnes ELVI pakomāts - Nītaures iela 5"
+  ],
+  "Babīte": [
+    "Babītes ELVI pakomāts - Liepu aleja 15A"
+  ],
+  "Baldone": [
+    "Baldones Mego pakomāts - Rīgas iela 79",
+    "Baldones TOP pakomāts - Pārupes iela 6"
+  ],
+  "Baloži": [
+    "Baložu Mego pakomāts - Rīgas iela 14"
+  ],
+  "Baltinava": [
+    "Baltinavas pakomāts - Kārsavas iela 4"
+  ],
+  "Balvi": [
+    "Balvu TOP pakomāts - Partizānu iela 8",
+    "Balvu Tautas ielas 1 pakomāts - Tautas iela 1"
+  ],
+  "Bauska": [
+    "Bauskas LIDL pakomāts - Zaļā iela 5",
+    "Bauskas Mini RIMI pakomāts - Zaļā iela 3",
+    "Bauskas Pionieru ielas RIMI pakomāts - Pionieru iela 2"
+  ],
+  "Brocēni": [
+    "Brocēnu Citro pakomāts - Lielcieceres iela 2A"
+  ],
+  "Bēne": [
+    "Bēnes TOP pakomāts - Stacijas iela 10"
+  ],
+  "Carnikava": [
+    "Carnikavas Mego pakomāts - Rīgas iela 14",
+    "Carnikavas T/C Mandarīns pakomāts - Atpūtas iela 1"
+  ],
+  "Cesvaine": [
+    "Cesvaines TOP pakomāts - Rīgas iela 2"
+  ],
+  "Cēsis": [
+    "Cēsu Gaujas ielas Maxima X pakomāts - Gaujas iela 1/3",
+    "Cēsu Gaujas ielas TOP pakomāts - Gaujas iela 29",
+    "Cēsu T/C Globuss pakomāts - Raiņa iela 26/28",
+    "Cēsu T/C SOLO pakomāts - Jāņa Poruka iela 19",
+    "Cēsu Valmieras ielas Maxima XX pakomāts - Valmieras iela 17A"
+  ],
+  "Dagda": [
+    "Dagdas TOP pakomāts - Daugavpils iela 6"
+  ],
+  "Daudzeva": [
+    "Daudzevas pakomāts"
+  ],
+  "Vecstropi": [
+    "Daugavpils 18. novembra ielas Lats pakomāts - 18. novembra iela 398A"
+  ],
+  "Daugavpils": [
+    "Daugavpils 18. novembra ielas RIMI pakomāts - 18. novembra iela 136",
+    "Daugavpils Aveņu ielas Maxima X pakomāts - Aveņu iela 35B",
+    "Daugavpils Balvu ielas 1a LIDL pakomāts - Balvu iela 1",
+    "Daugavpils Cialkovska ielas Lats pakomāts - Cialkovska iela 10A",
+    "Daugavpils Gaismas ielas TOP pakomāts - Gaismas iela 12",
+    "Daugavpils T/C Aveņu centrs pakomāts - Raipoles iela 11A",
+    "Daugavpils T/C Ditton pakomāts - Cietokšņa iela 60",
+    "Daugavpils T/C Solo pakomāts - Rīgas iela 9",
+    "Daugavpils Valkas ielas Mego pakomāts - Valkas iela 1",
+    "Daugavpils Viestura ielas Mego pakomāts - Viestura iela 60"
+  ],
+  "Daugmale": [
+    "Daugmales ELVI pakomāts"
+  ],
+  "Dobele": [
+    "Dobeles Brīvības ielas RIMI pakomāts - Brīvības iela 30",
+    "Dobeles J. Čakstes ielas ELDO pakomāts - Jāņa Čakstes iela 18",
+    "Dobeles Krasta ielas TOP pakomāts - Krasta iela 7",
+    "Dobeles Muldavas ielas TOP pakomāts - Muldavas iela 3A"
+  ],
+  "Druva": [
+    "Druvas ELVI pakomāts - Vienības iela 4"
+  ],
+  "Dundaga": [
+    "Dundagas Citro pakomāts - Talsu iela 1"
+  ],
+  "Eleja": [
+    "Elejas Virši pakomāts - Lietuvas iela 28"
+  ],
+  "Engure": [
+    "Engures Citro pakomāts - Jūras iela 81"
+  ],
+  "Ezere": [
+    "Ezeres ELVI pakomāts - Centra laukums 2"
+  ],
+  "Garkalne": [
+    "Garkalnes Lats pakomāts - Vidzemes šoseja 13"
+  ],
+  "Grobiņa": [
+    "Grobiņas LATS pakomāts - Vītolu iela 12",
+    "Grobiņas TOP pakomāts - Lielā iela 74"
+  ],
+  "Gulbene": [
+    "Gulbenes Dzelzceļa ielas 14 pakomāts - Dzelzceļa iela 14",
+    "Gulbenes Nākotnes ielas TOP pakomāts - Nākotnes iela 6"
+  ],
+  "Iecava": [
+    "Iecavas Maxima X pakomāts - Rīgas iela 27",
+    "Iecavas TOP pakomāts - Edvarta Virzas iela 2"
+  ],
+  "Ikšķile": [
+    "Ikšķiles ELVI pakomāts - Daugavas prospekts 18A",
+    "Ikšķiles Mini RIMI pakomāts - Melioratoru iela 1A"
+  ],
+  "Ilūkste": [
+    "Ilūkstes Pilskalnes ielas TOP pakomāts - Pilskalnes iela 2A"
+  ],
+  "Krimuldas": [
+    "Inciema pakomāts"
+  ],
+  "Inčukalns": [
+    "Inčukalna Aibe pakomāts - Atmodas iela 6"
+  ],
+  "Jaungulbene": [
+    "Jaungulbenes pakomāts"
+  ],
+  "Jaunjelgava": [
+    "Jaunjelgavas Mini Top pakomāts - Jelgavas iela 44"
+  ],
+  "Jaunmārupe": [
+    "Jaunmārupes Mazcenu alejas pakomāts - Mazcenu aleja 33/1"
+  ],
+  "Jaunolaine": [
+    "Jaunolaines TOP pakomāts - Baznīcas iela 10A"
+  ],
+  "Jaunpiebalga": [
+    "Jaunpiebalgas pakomāts - Gaujas iela 4"
+  ],
+  "Jaunpils": [
+    "Jaunpils TOP pakomāts"
+  ],
+  "Jelgava": [
+    "Jelgavas Birzes ielas 21 LATS pakomāts - Birzes iela 21",
+    "Jelgavas Lielās ielas ELVI pakomāts - Lielā iela 49",
+    "Jelgavas Meiju ceļa Aibe pakomāts - Meiju ceļš 38",
+    "Jelgavas Rīgas ielas 50 LIDL pakomāts - Rīgas iela 50",
+    "Jelgavas Rūpniecības ielas ELVI pakomāts - Rūpniecības iela 77A",
+    "Jelgavas Satiksmes ielas RIMI pakomāts - Satiksmes iela 35",
+    "Jelgavas T/C Pilsētas Pasāža pakomāts - Driksas iela 4",
+    "Jelgavas T/C RAF pakomāts - Rīgas iela 48",
+    "Jelgavas T/C Valdeka pakomāts - Rīgas iela 11A",
+    "Jelgavas T/C Vivo centrs pakomāts - Katoļu iela 18",
+    "Jelgavas Tērvetes ielas TOP pakomāts - Tērvetes iela 97",
+    "Jelgavas Uzvaras ielas TOP pakomāts - Uzvaras iela 6A",
+    "Jelgavas Zemgales prospekta 10 pakomāts - Zemgales prospekts 10"
+  ],
+  "Jumprava": [
+    "Jumpravas Lats pakomāts - Ceriņu iela 3"
+  ],
+  "Jēkabpils": [
+    "Jēkabpils Nameja ielas TOP pakomāts - Nameja iela 12",
+    "Jēkabpils Rīgas ielas Mini RIMI pakomāts - Rīgas iela 120",
+    "Jēkabpils T/C Sprīdītis pakomāts - Celtnieku iela 1",
+    "Jēkabpils T/C Sēlija pakomāts - Vienības iela 7",
+    "Jēkabpils Vienības ielas Mego pakomāts - Vienības iela 1A"
+  ],
+  "Jūrmala": [
+    "Jūrmalas Asaru Senās bodes pakomāts - Asaru prospekts 14",
+    "Jūrmalas Bulduru tirgus pakomāts - Meža prospekts 36",
+    "Jūrmalas Dubultu TOP pakomāts - Strēlnieku prospekts 1",
+    "Jūrmalas Kauguru Engures ielas Maxima pakomāts - Engures iela 3",
+    "Jūrmalas Kauguru RIMI pakomāts - Talsu šoseja 29",
+    "Jūrmalas Kauguru Raiņa ielas Mini RIMI pakomāts - Raiņa iela 74",
+    "Jūrmalas Lielupes RIMI pakomāts - Viestura iela 22",
+    "Jūrmalas Majoru J. Pliekšāna ielas TOP pakomāts - Jāņa Pliekšāna iela 86",
+    "Jūrmalas Mellužu Dārzu ielas 55A pakomāts - Dārzu iela 55A",
+    "Jūrmalas Slokas T/C Liedags pakomāts - Ventspils šoseja 32",
+    "Jūrmalas Valteru Piekrastes ielas 31A pakomāts - Piekrastes iela 31A",
+    "Jūrmalas Ķemeru TOP pakomāts - Emīla Dārziņa iela 16"
+  ],
+  "Kadaga": [
+    "Kadagas T/C Kadaga pakomāts"
+  ],
+  "Kalnciems": [
+    "Kalnciema Aibe pakomāts - Lielā iela 11"
+  ],
+  "Kalngale": [
+    "Kalngales ELVI pakomāts - Ērgļu iela 1B"
+  ],
+  "Kandava": [
+    "Kandavas Citro pakomāts - Lielā iela 1"
+  ],
+  "Katlakalns": [
+    "Katlakalna pakomāts - Pļavniekkalna iela 41A"
+  ],
+  "Koknese": [
+    "Kokneses Lats pakomāts - Hanzas iela 1"
+  ],
+  "Kolka": [
+    "Kolkas Citro pakomāts"
+  ],
+  "Krustkalni": [
+    "Krustkalnu T/C A7 pakomāts"
+  ],
+  "Krāslava": [
+    "Krāslavas Maxima X pakomāts - Rīgas iela 28"
+  ],
+  "Kuldīga": [
+    "Kuldīgas Gravas ielas ELVI pakomāts - Gravas iela 1",
+    "Kuldīgas LIDL pakomāts - Aizputes iela 7",
+    "Kuldīgas Stendes ielas Citro pakomāts - Stendes iela 23A",
+    "Kuldīgas Sūru ielas RIMI pakomāts - Sūru iela 2"
+  ],
+  "Kārsava": [
+    "Kārsavas TOP pakomāts - Sporta iela 6"
+  ],
+  "Lapmežciems": [
+    "Lapmežciema Citro pakomāts"
+  ],
+  "Lielvārde": [
+    "Lielvārdes TOP pakomāts - Lāčplēša iela 16"
+  ],
+  "Liepa": [
+    "Liepas TOP pakomāts - Rūpnīcas iela 8A"
+  ],
+  "Liepāja": [
+    "Liepājas Ganību ielas ELVI pakomāts - Ganību iela 69/71",
+    "Liepājas Ganību ielas JYSK pakomāts - Ganību iela 187",
+    "Liepājas Krūmu ielas MEGO pakomāts - Krūmu iela 45/47",
+    "Liepājas Kuršu laukuma 10 pakomāts - Kuršu laukums 10",
+    "Liepājas O. Kalpaka ielas 74 pakomāts - Oskara Kalpaka iela 74",
+    "Liepājas P. Brieža ielas 14 pakomāts - Pulkveža Brieža iela 14",
+    "Liepājas Rožu laukuma pakomāts - Lielā iela 13",
+    "Liepājas Sila ielas TOP pakomāts - Sila iela 3",
+    "Liepājas T/C Baata pakomāts - Klaipēdas iela 104C",
+    "Liepājas T/C Rietumu centrs pakomāts - Jaunā ostmala 3/5",
+    "Liepājas Ziemeļu ielas RIMI pakomāts - Ziemeļu iela 13"
+  ],
+  "Limbaži": [
+    "Limbažu Pasta ielas pakomāts - Pasta iela 1",
+    "Limbažu RIMI pakomāts - Cēsu iela 23"
+  ],
+  "Lubāna": [
+    "Lubānas O. Kalpaka ielas Vesko pakomāts - Oskara Kalpaka iela 5"
+  ],
+  "Ludza": [
+    "Ludzas Stacijas ielas 30 pakomāts - Stacijas iela 30"
+  ],
+  "Līvāni": [
+    "Līvānu Rimi pakomāts - Rīgas iela 89"
+  ],
+  "Madliena": [
+    "Madlienas ELVI pakomāts"
+  ],
+  "Madona": [
+    "Madonas Raiņa ielas 34 pakomāts - Raiņa iela 34",
+    "Madonas Rūpniecības ielas MINI RIMI pakomāts - Rūpniecības iela 47",
+    "Madonas Saules ielas 4 pakomāts - Saules iela 4"
+  ],
+  "Malta": [
+    "Maltas Lats pakomāts - 1. maija iela 44"
+  ],
+  "Mazsalaca": [
+    "Mazsalacas pakomāts - Parka iela 1"
+  ],
+  "Medemciems": [
+    "Medemciema pakomāts - Medemciema iela 1"
+  ],
+  "Mālpils": [
+    "Mālpils Pirts ielas TOP pakomāts - Pirts iela 5"
+  ],
+  "Mārupe": [
+    "Mārupes Daugavas ielas 36 ELVI pakomāts - Daugavas iela 36",
+    "Mārupes Dzirnieku ielas 24 pakomāts - Dzirnieku iela 24",
+    "Mārupes Lielās ielas ELVI pakomāts - Lielā iela 26",
+    "Mārupes Omniva šķirošanas centra C ieejas pakomāts - Dzirnieku iela 24",
+    "Mārupes RIMI pakomāts - Daugavas iela 31",
+    "Mārupes Rožu ielas 2 pakomāts - Rožu iela 2"
+  ],
+  "Mērsrags": [
+    "Mērsraga Citro pakomāts - Lielā iela 31"
+  ],
+  "Naukšēni": [
+    "Naukšēnu Lats pakomāts"
+  ],
+  "Nereta": [
+    "Neretas TOP pakomāts - Raiņa iela 6"
+  ],
+  "Nīca": [
+    "Nīcas Lats pakomāts - Skolas iela 6"
+  ],
+  "Ogre": [
+    "Ogres Brīvības ielas 19 pakomāts - Brīvības iela 19",
+    "Ogres Kartona fabrikas pakomāts - Brīvības iela 116",
+    "Ogres LIDL pakomāts - Kalna prospekts 2A",
+    "Ogres Mālkalnes prospekta 3 pakomāts - Mālkalnes prospekts 3",
+    "Ogres Rīgas ielas RIMI pakomāts - Rīgas iela 33",
+    "Ogres Skolas ielas 4 pakomāts - Skolas iela 4",
+    "Ogres T/C Dauga pakomāts - Rīgas iela 23",
+    "Ogres T/C Ogres prestižs pakomāts - Mednieku iela 21/23"
+  ],
+  "Olaine": [
+    "Olaines Stacijas ielas RIMI pakomāts - Stacijas iela 8",
+    "Olaines T/C Prasme pakomāts - Zemgales iela 24"
+  ],
+  "Ozolaine": [
+    "Ozolaines Ābeļu ielas TOP pakomāts - Ābeļu iela 2"
+  ],
+  "Ozolnieki": [
+    "Ozolnieku ELVI pakomāts - Rīgas iela 42",
+    "Ozolnieku TOP pakomāts - Skolas iela 1B"
+  ],
+  "Piņķi": [
+    "Piņķu Elvi pakomāts - Rīgas iela 8",
+    "Piņķu Rīgas ielas RIMI pakomāts - Rīgas iela 23"
+  ],
+  "Plakanciems": [
+    "Plakanciema pakomāts"
+  ],
+  "Pope": [
+    "Popes pakomāts"
+  ],
+  "Preiļi": [
+    "Preiļu Brīvības ielas TOP pakomāts - Brīvības iela 4",
+    "Preiļu Rīgas ielas MEGO pakomāts - Rīgas iela 4D"
+  ],
+  "Priekule": [
+    "Priekules TOP pakomāts - Galvenā iela 1"
+  ],
+  "Priekuļi": [
+    "Priekuļu Aibe pakomāts - Cēsu prospekts 44"
+  ],
+  "Pāvilosta": [
+    "Pāvilostas TOP pakomāts - Dzintaru iela 69"
+  ],
+  "Pļaviņas": [
+    "Pļaviņu TOP pakomāts - Daugavas iela 85"
+  ],
+  "Pūre": [
+    "Pūres Citro pakomāts"
+  ],
+  "Ragana": [
+    "Raganas ELVI pakomāts - Tirgus iela 10"
+  ],
+  "Ranka": [
+    "Rankas pakomāts"
+  ],
+  "Rauna": [
+    "Raunas TOP pakomāts - Cēsu iela 2A"
+  ],
+  "Roja": [
+    "Rojas Maxima X pakomāts - Selgas iela 2"
+  ],
+  "Ropaži": [
+    "Ropažu Lats Pakomāts - Rīgas iela 12"
+  ],
+  "Krustiņi": [
+    "RĀMKALNI pakomāts"
+  ],
+  "Rēzekne": [
+    "Rēzeknes Atbrīvošanas alejas Maxima XX pakomāts - Atbrīvošanas aleja 141",
+    "Rēzeknes Dārzu ielas 63 pakomāts - Dārzu iela 63",
+    "Rēzeknes Dārzu ielas ELFI pakomāts - Dārzu iela 14",
+    "Rēzeknes Galdnieku ielas RIMI pakomāts - Galdnieku iela 8",
+    "Rēzeknes Kr. Valdemāra ielas Mego pakomāts - Kr. Valdemāra iela 16A",
+    "Rēzeknes Stacijas ielas 20A pakomāts - Stacijas iela 20A"
+  ],
+  "Rīga": [
+    "Rīgas A. Briāna ielas RIMI pakomāts - Krišjāņa Valdemāra iela 62A",
+    "Rīgas A. Deglava 110 Rimi pakomāts - Augusta Deglava iela 110",
+    "Rīgas A. Deglava ielas 160 LIDL pakomāts - Augusta Deglava iela 160",
+    "Rīgas Anniņmuižas bulvāra RIMI pakomāts - Anniņmuižas bulvāris 40A",
+    "Rīgas Anniņmuižas ielas 8a LIDL pakomāts - Anniņmuižas iela 8A",
+    "Rīgas Artilērijas ielas 40 pakomāts - Artilērijas iela 40",
+    "Rīgas Autoostas pakomāts - Prāgas iela 1",
+    "Rīgas Avotu ielas 17 pakomāts - Avotu iela 17",
+    "Rīgas BARONS KVARTĀLS pakomāts - Cēsu iela 31",
+    "Rīgas Baltāsbaznīcas ielas MEGO pakomāts - Baltāsbaznīcas iela 42",
+    "Rīgas Berģu ielas Senās Bodes pakomāts - Berģu iela 72B",
+    "Rīgas Biķernieku ielas 16a MEGO pakomāts - Biķernieku iela 16A",
+    "Rīgas Biķernieku ielas RIMI pakomāts - Biķernieku iela 160 k-6",
+    "Rīgas Bolderājas Lats pakomāts - Lemešu iela 20",
+    "Rīgas Bolderājas Mego pakomāts - Gobas iela 13",
+    "Rīgas Botāniskā dārza Maxima pakomāts - Dzirciema iela 1",
+    "Rīgas Brīvības g. 253 Neste pakomāts - Brīvības gatve 253",
+    "Rīgas Brīvības gatves 386 Neste pakomāts - Brīvības gatve 386",
+    "Rīgas Brīvības gatves 404 RIMI pakomāts - Brīvības gatve 404",
+    "Rīgas Brīvības ielas 254 LIDL pakomāts - Brīvības gatve 254",
+    "Rīgas Brīvības ielas 35 pakomāts - Brīvības iela 35",
+    "Rīgas Brīvības ielas 78a pakomāts - Brīvības iela 78A",
+    "Rīgas Buļļu ielas 35 Aibe pakomāts - Buļļu iela 35",
+    "Rīgas Bērnu pasaules RIMI pakomāts - Matīsa iela 25",
+    "Rīgas Bērnu slimnīcas pakomāts - Vienības gatve 45",
+    "Rīgas Dammes tirgus pakomāts - Dammes iela 36A",
+    "Rīgas Daugavgrīvas ielas TOP pakomāts - Daugavgrīvas iela 72",
+    "Rīgas Deglava ielas Maxima XXX pakomāts - Augusta Deglava iela 67",
+    "Rīgas Duntes Biroji pakomāts - Duntes iela 6",
+    "Rīgas Duntes ielas Neste pakomāts - Dambja iela 10",
+    "Rīgas Dzelzavas ielas 75 LIDL pakomāts - Dzelzavas iela 75B",
+    "Rīgas Dzelzavas ielas 78 RIMI pakomāts - Dzelzavas iela 78",
+    "Rīgas Dzelzavas ielas 86 Mini RIMI pakomāts - Dzelzavas iela 86",
+    "Rīgas Dzirnavu ielas 113 pakomāts - Dzirnavu iela 113",
+    "Rīgas Elizabetes ielas 81 pakomāts - Elizabetes iela 81",
+    "Rīgas F. Sadovņikova ielas 14 RIMI pakomāts - Firsa Sadovņikova iela 14",
+    "Rīgas G. Astras ielas VIADA pakomāts - Gunāra Astras iela 7",
+    "Rīgas Gramzdas RIMI pakomāts - Imantas 15. līnija 7",
+    "Rīgas Graudu ielas Mego pakomāts - Graudu iela 10",
+    "Rīgas Grostonas ielas Maxima XXX pakomāts - Grostonas iela 1",
+    "Rīgas Hipokrāta ielas FIX PRICE pakomāts - Hipokrāta iela 26",
+    "Rīgas Jaunciema gatves Maxima X pakomāts - Jaunciema gatve 174",
+    "Rīgas Juglas ielas 25 MINI RIMI pakomāts - Juglas iela 25",
+    "Rīgas Juglas ielas 45 Maxima pakomāts - Juglas iela 45",
+    "Rīgas Jūrmalas gatves RIMI pakomāts - Anniņmuižas bulvāris 90",
+    "Rīgas Kalnciema ielas 38 LIDL pakomāts - Kalnciema iela 38",
+    "Rīgas Kalnciema ielas RIMI pakomāts - Kalnciema iela 41",
+    "Rīgas Kalpaka bulvāra 14A pakomāts - Kalpaka bulvāris 14A",
+    "Rīgas Katoļu ielas Neste pakomāts - Katoļu iela 4",
+    "Rīgas Kleistu ielas Mego pakomāts - Kleistu iela 9",
+    "Rīgas Kr. Barona ielas 136 pakomāts - Krišjāņa Barona iela 136",
+    "Rīgas Kr. Valdemāra ielas 112 RIMI pakomāts - Krišjāņa Valdemāra iela 112",
+    "Rīgas Krasta ielas 40 LIDL pakomāts - Krasta iela 40",
+    "Rīgas Krasta ielas 52 pakomāts - Krasta iela 52",
+    "Rīgas Kurzemes prospekta 15a Neste pakomāts - Kurzemes prospekts 15A",
+    "Rīgas Kurzemes prospekta Mego pakomāts - Kurzemes prospekts 132",
+    "Rīgas Latgales ielas 256B RIMI pakomāts - Latgales iela 256B",
+    "Rīgas Latgales ielas 414 LIDL pakomāts - Latgales iela 414",
+    "Rīgas Latgales ielas 427b Neste pakomāts - Latgales iela 427B",
+    "Rīgas Lidoņu ielas 3 MAXIMA X pakomāts - Lidoņu iela 3",
+    "Rīgas Lidoņu ielas Mego pakomāts - Lidoņu iela 27 k-1",
+    "Rīgas Liepājas ielas Maxima X pakomāts - Liepājas iela 76A",
+    "Rīgas Lubānas ielas 113a LIDL pakomāts - Lubānas iela 113A",
+    "Rīgas Lāčplēša ielas 76 LIDL pakomāts - Lāčplēša iela 76",
+    "Rīgas Mazās stacijas ielas Drogas pakomāts - Mazā Stacijas iela 2A",
+    "Rīgas Miera ielas 2 pakomāts - Miera iela 2",
+    "Rīgas MĒBEĻU NAMS pakomāts - Dzelzavas iela 72",
+    "Rīgas Mīlgrāvja ielas RIMI pakomāts - Mīlgrāvja iela 14",
+    "Rīgas Mūkusalas Maxima XX pakomāts - Mūkusalas iela 73",
+    "Rīgas Nīcgales ielas 2 RIMI pakomāts - Nīcgales iela 2",
+    "Rīgas Nīcgales ielas 53 T/C GREEN pakomāts - Nīcgales iela 53",
+    "Rīgas P. Brieža ielas RIMI pakomāts - Pulkveža Brieža iela 33",
+    "Rīgas PEPSI CENTRS pakomāts - Uzvaras bulvāris 10",
+    "Rīgas Parādes ielas Mego pakomāts - Parādes iela 5B",
+    "Rīgas Prūšu ielas 1 LIDL pakomāts - Prūšu iela 1",
+    "Rīgas Prūšu ielas 2 Mego pakomāts - Prūšu iela 2",
+    "Rīgas Prūšu ielas 22a Mego pakomāts - Prūšu iela 22A",
+    "Rīgas Purvciema ielas Beta pakomāts - Purvciema iela 35",
+    "Rīgas Pētersalas ielas Maxima pakomāts - Pētersalas iela 18B",
+    "Rīgas Pļavnieku ielas BETA pakomāts - Pļavnieku iela 1A",
+    "Rīgas Remtes ielas 21 LIDL pakomāts - Remtes iela 21",
+    "Rīgas Rītupes ielas Maxima X pakomāts - Rītupes iela 2",
+    "Rīgas S. Eizenšteina ielas 29 pakomāts - Sergeja Eizenšteina iela 29",
+    "Rīgas S. Eizenšteina ielas 81 LIDL pakomāts - Sergeja Eizenšteina iela 81",
+    "Rīgas Saharova ielas 14 Mego pakomāts - Andreja Saharova iela 14",
+    "Rīgas Saharova ielas 2 MEGO pakomāts - Andreja Saharova iela 2",
+    "Rīgas Saharova ielas 23 RIMI pakomāts - Andreja Saharova iela 23A",
+    "Rīgas Saharova ielas Maxima XXX pakomāts - Andreja Saharova iela 20A",
+    "Rīgas Skanstes ielas 17 RIMI pakomāts - Skanstes iela 17",
+    "Rīgas Sporta Pils dārzu pakomāts - Lielgabalu iela 4",
+    "Rīgas Sporta ielas 10 LIDL pakomāts - Sporta iela 10",
+    "Rīgas Stabu ielas 24 pakomāts - Stabu iela 24",
+    "Rīgas Stirnu ielas RIMI pakomāts - Stirnu iela 26",
+    "Rīgas T/C AKROPOLE Alfa pakomāts - Brīvības gatve 372",
+    "Rīgas T/C Akropole pakomāts - Latgales iela 257",
+    "Rīgas T/C Aleja pakomāts - Vienības gatve 194A",
+    "Rīgas T/C DOMINA pakomāts - Ieriķu iela 3",
+    "Rīgas T/C Damme pakomāts - Kurzemes prospekts 1A",
+    "Rīgas T/C Dole pakomāts - Latgales iela 357",
+    "Rīgas T/C Gaiļezers pakomāts - Gaiļezera iela 8",
+    "Rīgas T/C Galleria Riga pakomāts - Dzirnavu iela 67",
+    "Rīgas T/C IXO pakomāts - Anniņmuižas iela 17",
+    "Rīgas T/C Juglas Centrs pakomāts - Juglas krastmala 2",
+    "Rīgas T/C Olimpia pakomāts - Āzenes iela 5",
+    "Rīgas T/C Ozols pakomāts - Mazā Rencēnu iela 1",
+    "Rīgas T/C Riga Plaza pakomāts - Mūkusalas iela 71",
+    "Rīgas T/C Spice pakomāts - Lielirbes iela 29",
+    "Rīgas T/C Teika Plaza pakomāts - Brīvības gatve 201",
+    "Rīgas T/C Venta pakomāts - Zolitūdes iela 34",
+    "Rīgas T/C ZOOM pakomāts - Latgales iela 400",
+    "Rīgas Tallinas ielas 86 pakomāts - Tallinas iela 86",
+    "Rīgas Tilta ielas RIMI pakomāts - Tilta iela 32",
+    "Rīgas Tēriņu ielas 55 pakomāts - Tēriņu iela 55",
+    "Rīgas Ulbrokas ielas Maxima X pakomāts - Ulbrokas iela 4",
+    "Rīgas Vaidavas ielas RIMI pakomāts - Vaidavas iela 9B",
+    "Rīgas Vaidelotes ielas RIMI pakomāts - Vaidelotes iela 11A",
+    "Rīgas Valdeķu ielas 10 Maxima X pakomāts - Valdeķu iela 10",
+    "Rīgas Valdeķu ielas 39A LIDL pakomāts - Valdeķu iela 39A",
+    "Rīgas Vecmīlgrāvja Maxima X pakomāts - Augusta Dombrovska iela 74",
+    "Rīgas Vecmīlgrāvja RIMI pakomāts - Augusta Dombrovska iela 23",
+    "Rīgas Vecmīlgrāvja VIADA pakomāts - Emmas iela 45",
+    "Rīgas Vecāķu ELVI pakomāts - Mangaļu prospekts 29",
+    "Rīgas Vienības gatves 144 Neste pakomāts - Vienības gatve 144",
+    "Rīgas Viestura prospekta 35a TOP pakomāts - Viestura prospekts 35A",
+    "Rīgas Zalves ielas TOP pakomāts - Zalves iela 46A",
+    "Rīgas Ziepniekkalna MEGO pakomāts - Dižozolu iela 2",
+    "Rīgas Āgenskalna Maxima X pakomāts - Pilsoņu iela 1 k-1",
+    "Rīgas Āgenskalna RIMI pakomāts - Mārupes iela 10A",
+    "Rīgas Čiekurkalna MEGO pakomāts - Čiekurkalna 4. šķērslīnija 4",
+    "Rīgas Ķīšezera ielas 6 RIMI pakomāts - Ķīšezera iela 6",
+    "Rīgas Ķīšezera ielas 8 LIDL pakomāts - Ķīšezera iela 8"
+  ],
+  "Dreiliņi": [
+    "Rīgas T/C Sāga pakomāts - Biķeru iela 4"
+  ],
+  "Rūjiena": [
+    "Rūjienas TOP pakomāts - Brīvības iela 8"
+  ],
+  "Sabile": [
+    "Sabiles Citro pakomāts - Ventspils iela 9"
+  ],
+  "Salacgrīva": [
+    "Salacgrīvas Maxima X pakomāts - Vidzemes iela 3A"
+  ],
+  "Salaspils": [
+    "Salaspils LIDL pakomāts - Skolas iela 4A",
+    "Salaspils Miera ielas AIBE pakomāts - Miera iela 24",
+    "Salaspils Rīgas ielas ELVI pakomāts - Rīgas iela 24",
+    "Salaspils Rīgas ielas TOP pakomāts - Rīgas iela 48",
+    "Salaspils Skolas ielas RIMI pakomāts - Skolas iela 4E"
+  ],
+  "Saldus": [
+    "Saldus Brīvības ielas Maxima XX pakomāts - Brīvības iela 30",
+    "Saldus Kalna ielas AIBE KAIVA pakomāts - Kalna iela 20",
+    "Saldus Lielās ielas Lats pakomāts - Lielā iela 73",
+    "Saldus Striķu ielas Maxima X pakomāts - Striķu iela 10C"
+  ],
+  "Saulkalne": [
+    "Saulkalnes TOP pakomāts - Daugavmalas iela 24A"
+  ],
+  "Saulkrasti": [
+    "Saulkrastu Ainažu ielas RIMI pakomāts - Ainažu iela 30",
+    "Saulkrastu TOP pakomāts - Rīgas iela 51"
+  ],
+  "Saurieši": [
+    "Sauriešu DELFĪNS pakomāts - Kazāru iela 4"
+  ],
+  "Sece": [
+    "Seces pakomāts"
+  ],
+  "Sigulda": [
+    "Siguldas Kr. Barona ielas Beta pakomāts - Krišjāņa Barona iela 6",
+    "Siguldas L. Paegles ielas Maxima pakomāts - Leona Paegles iela 3",
+    "Siguldas T/C Gāles Nams pakomāts - Gāles iela 23A",
+    "Siguldas T/C Šokolāde pakomāts - Strēlnieku iela 2",
+    "Siguldas Vidus ielas ELVI pakomāts - Vidus iela 1"
+  ],
+  "Skaistkalne": [
+    "Skaistkalnes VESKO pakomāts - Rīgas iela 3"
+  ],
+  "Skrunda": [
+    "Skrundas ELVI pakomāts - Ventas iela 13"
+  ],
+  "Skrīveri": [
+    "Skrīveru TOP pakomāts - Daugavas iela 97"
+  ],
+  "Slampe": [
+    "Slampes pakomāts"
+  ],
+  "Smiltene": [
+    "Smiltenes Daugavas ielas TOP pakomāts - Daugavas iela 1B",
+    "Smiltenes Rīgas ielas TOP pakomāts - Rīgas iela 5",
+    "Smiltenes T/C Centrs pakomāts - Baznīcas laukums 2"
+  ],
+  "Stende": [
+    "Stendes Brīvības ielas Citro pakomāts - Brīvības iela 12"
+  ],
+  "Straupe": [
+    "Straupes VIADA pakomāts"
+  ],
+  "Strenči": [
+    "Strenču TOP pakomāts - Valkas iela 2"
+  ],
+  "Suntaži": [
+    "Suntažu AIBE pakomāts"
+  ],
+  "Talsi": [
+    "Talsu Dundagas ielas Citro pakomāts - Dundagas iela 21",
+    "Talsu Dundagas ielas RIMI pakomāts - Dundagas iela 18",
+    "Talsu Rīgas ielas Maxima XX pakomāts - Rīgas iela 8",
+    "Talsu T/C Talsu Centrs pakomāts - Lielā iela 2"
+  ],
+  "Tilža": [
+    "Tilžas pakomāts - Brīvības iela 26"
+  ],
+  "Tukums": [
+    "Tukuma Alīnes ielas TOP pakomāts - Alīnes iela 1A",
+    "Tukuma Kurzemes ielas 2A Mego pakomāts - Kurzemes iela 2A",
+    "Tukuma LIDL pakomāts - Raudas iela 17A",
+    "Tukuma Pasta ielas RIMI pakomāts - Pasta iela 14",
+    "Tukuma T/C Aplis pakomāts - Eksporta iela 6"
+  ],
+  "Tīnūži": [
+    "Tīnūžu Senās Bodes pakomāts"
+  ],
+  "Ugāle": [
+    "Ugāles Lats pakomāts - Skolas iela 7"
+  ],
+  "Ulbroka": [
+    "Ulbrokas ELVI pakomāts - Peldu iela 2",
+    "Ulbrokas TOP pakomāts - Institūta iela 7"
+  ],
+  "Upesciems": [
+    "Upesciema Lats pakomāts - Ziedu iela 2C"
+  ],
+  "Valdemārpils": [
+    "Valdemārpils Lielās ielas 17A pakomāts - Lielā iela 17A"
+  ],
+  "Valdlauči": [
+    "Valdlauču TOP pakomāts - Atpūtas iela 5"
+  ],
+  "Valka": [
+    "Valkas Raiņa ielas Maxima X pakomāts - Raiņa iela 7",
+    "Valkas T/C Walk pakomāts - Ausekļa iela 54"
+  ],
+  "Valmiera": [
+    "Valmieras Fabrikas ielas RIMI pakomāts - Fabrikas iela 2",
+    "Valmieras Miera ielas TOP pakomāts - Miera iela 5",
+    "Valmieras Nākotnes ielas Maxima X pakomāts - Nākotnes iela 2",
+    "Valmieras Rubenes ielas RIMI pakomāts - Rubenes iela 51",
+    "Valmieras Rīgas ielas TOP pakomāts - Rīgas iela 64",
+    "Valmieras Stacijas ielas 33 pakomāts - Stacijas iela 33",
+    "Valmieras T/C Valleta pakomāts - Rīgas iela 4"
+  ],
+  "Vangaži": [
+    "Vangažu Aibe pakomāts - Gaujas iela 19A"
+  ],
+  "Varakļāni": [
+    "Varakļānu TOP pakomāts - Pils iela 7D"
+  ],
+  "Variņi": [
+    "Variņu pakomāts - Oktobra iela 9"
+  ],
+  "Vecpiebalga": [
+    "Vecpiebalgas TOP pakomāts - Alauksta iela 2"
+  ],
+  "Vecumnieki": [
+    "Vecumnieku Lats pakomāts - Rīgas iela 24B"
+  ],
+  "Ventspils": [
+    "Ventspils Celtnieku ielas ELVI pakomāts - Celtnieku iela 3",
+    "Ventspils Ganību ielas Mego pakomāts - Ganību iela 22/24",
+    "Ventspils Inženieru ielas MEGO pakomāts - Inženieru iela 65",
+    "Ventspils Poruka ielas RIMI pakomāts - J. Poruka iela 5",
+    "Ventspils T/C Tobago pakomāts - Lielais prospekts 3/5",
+    "Ventspils Talsu ielas Citro pakomāts - Talsu iela 6",
+    "Ventspils Tārgales ielas Mini RIMI pakomāts - Tārgales iela 62"
+  ],
+  "Viesīte": [
+    "Viesītes TOP pakomāts - Raiņa iela 23"
+  ],
+  "Viļaka": [
+    "Viļakas Balvu ielas pakomāts - Balvu iela 5"
+  ],
+  "Viļāni": [
+    "Viļānu Brīvības ielas pakomāts - Brīvības iela 13"
+  ],
+  "Zaķumuiža": [
+    "Zaķumuižas pakomāts - Vidzemes prospekts 11A"
+  ],
+  "Zaļenieki": [
+    "Zaļenieku TOP pakomāts - Centra iela 7"
+  ],
+  "Zilupe": [
+    "Zilupes TOP pakomāts - Brīvības iela 34"
+  ],
+  "Zvejniekciems": [
+    "Zvejniekciema Bērzu alejas ELVI pakomāts - Bērzu aleja 5"
+  ],
+  "Ādaži": [
+    "Ādažu Gaujas ielas Mini RIMI pakomāts - Gaujas iela 6",
+    "Ādažu Rīgas gatves ELVI pakomāts - Rīgas gatve 51",
+    "Ādažu T/C Apelsīns pakomāts - Rīgas gatve 5"
+  ],
+  "Ērgļi": [
+    "Ērgļu Zaļās ielas TOP pakomāts - Zaļā iela 1"
+  ],
+  "Ķegums": [
+    "Ķeguma ELVI pakomāts - Ķeguma prospekts 5C"
+  ],
+  "Ķekava": [
+    "Ķekavas Gaismas ielas Maxima X pakomāts - Gaismas iela 1A",
+    "Ķekavas T/C Dālderi pakomāts - Nākotnes iela 1",
+    "Ķekavas T/C Liiba pakomāts - Rīgas iela 22A"
+  ],
+  "Ļaudona": [
+    "Ļaudonas pakomāts - Brīvības iela 8"
+  ]
+}

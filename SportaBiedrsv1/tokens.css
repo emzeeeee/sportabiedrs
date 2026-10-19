@@ -1,0 +1,165 @@
+/**
+ * SportaBiedrs design tokens: v3 "scoreboard"
+ * Paper + ink, one volt accent, hairlines instead of shadows.
+ * Fonts are self-hosted (assets/fonts) and cover Latin, Latin Extended (LV) and Cyrillic (RU).
+ */
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: 'Roboto Flex';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  src: url('assets/fonts/roboto-flex-latin-wdth-normal.woff2') format('woff2-variations'), url('assets/fonts/roboto-flex-latin-wdth-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Roboto Flex';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  src: url('assets/fonts/roboto-flex-latin-ext-wdth-normal.woff2') format('woff2-variations'), url('assets/fonts/roboto-flex-latin-ext-wdth-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Roboto Flex';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+  src: url('assets/fonts/roboto-flex-cyrillic-wdth-normal.woff2') format('woff2-variations'), url('assets/fonts/roboto-flex-cyrillic-wdth-normal.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('assets/fonts/geologica-latin-wght-normal.woff2') format('woff2-variations'), url('assets/fonts/geologica-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('assets/fonts/geologica-latin-ext-wght-normal.woff2') format('woff2-variations'), url('assets/fonts/geologica-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Geologica';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('assets/fonts/geologica-cyrillic-wght-normal.woff2') format('woff2-variations'), url('assets/fonts/geologica-cyrillic-wght-normal.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('assets/fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2-variations'), url('assets/fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('assets/fonts/jetbrains-mono-latin-ext-wght-normal.woff2') format('woff2-variations'), url('assets/fonts/jetbrains-mono-latin-ext-wght-normal.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('assets/fonts/jetbrains-mono-cyrillic-wght-normal.woff2') format('woff2-variations'), url('assets/fonts/jetbrains-mono-cyrillic-wght-normal.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+:root {
+  /* ---------- Colour: paper & ink ---------- */
+  --paper: #f2f0e9;
+  --paper-2: #e9e6dc;
+  --paper-3: #dedacd;
+  --card: #fbfaf6;
+  --white: #ffffff;
+
+  --ink: #121311;
+  --ink-2: #1b1c19;
+  --ink-3: #272824;
+  --ink-4: #34352f;
+
+  --text: #121311;
+  --text-2: #3b3c36;          /* body copy on paper */
+  --text-3: #66655d;          /* meta on paper (AA on --paper) */
+
+  --on-dark: #f2f0e9;
+  --on-dark-2: rgba(242, 240, 233, 0.72);
+  --on-dark-3: rgba(242, 240, 233, 0.52);
+
+  --line: rgba(18, 19, 17, 0.13);
+  --line-2: rgba(18, 19, 17, 0.24);
+  --line-strong: #121311;
+  --line-dark: rgba(242, 240, 233, 0.13);
+  --line-dark-2: rgba(242, 240, 233, 0.26);
+
+  /* ---------- Colour: accents ---------- */
+  --volt: #d7f23c;            /* tennis-ball volt, used sparingly */
+  --volt-2: #c6e22b;          /* hover */
+  --volt-ink: #121311;        /* text on volt */
+  --signal: #d43f22;          /* track red: sale, errors */
+  --signal-soft: rgba(212, 63, 34, 0.1);
+  --ok: #2f7a4b;
+  --ok-soft: rgba(47, 122, 75, 0.12);
+  --warn: #9a6a00;
+
+  /* Legacy aliases (inline styles on older subpages) */
+  --rust: var(--signal);
+  --sb-rust: var(--signal);
+  --sb-color-accent: var(--ink);
+
+  /* ---------- Type ---------- */
+  --font-display: 'Roboto Flex', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Geologica', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --display-stretch: 34%;     /* condensed athletic headline */
+  --display-weight: 860;
+
+  --fs-hero: clamp(3.6rem, 10.4vw, 9.1rem);   /* capped so the last line never runs under the lede */
+  --fs-h2: clamp(2.6rem, 6.2vw, 5.6rem);
+  --fs-h3: clamp(1.5rem, 2.2vw, 1.9rem);
+  --fs-lede: clamp(1.05rem, 1.35vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.78rem;
+  --fs-mono: 0.72rem;
+
+  /* ---------- Space & layout ---------- */
+  --wrap: 1320px;
+  --gutter: clamp(16px, 3.2vw, 40px);
+  --section-y: clamp(72px, 9vw, 136px);
+  --header-h: 64px;
+
+  --r-0: 0px;
+  --r-1: 2px;
+  --r-2: 4px;
+  --r-pill: 999px;
+
+  /* ---------- Motion ---------- */
+  --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 140ms;
+  --t: 220ms;
+  --t-slow: 420ms;
+
+  --shadow-pop: 0 18px 40px -18px rgba(18, 19, 17, 0.45);
+  --shadow-panel: 0 30px 80px -30px rgba(18, 19, 17, 0.55);
+}

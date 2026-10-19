@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="lv">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self' https://api.stripe.com https://checkout.stripe.com; object-src 'none'; img-src 'self' data: blob: https:; script-src 'self' 'unsafe-inline' https://relative-blowfish-9974.clerk.accounts.dev https://unpkg.com https://cdn.jsdelivr.net https://js.stripe.com https://*.js.stripe.com https://challenges.cloudflare.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://clerk-telemetry.com https://server.arcgisonline.com https://services.arcgisonline.com https://relative-blowfish-9974.clerk.accounts.dev https://www.omniva.ee https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://api.stripe.com https://*.stripe.com; frame-src 'self' https://js.stripe.com https://*.js.stripe.com https://hooks.stripe.com https://checkout.stripe.com https://relative-blowfish-9974.clerk.accounts.dev https://challenges.cloudflare.com; media-src 'self' data: https:; upgrade-insecure-requests;">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=(), interest-cohort=()">
+<title>SportaBiedrs.lv · Atrodi biedru, sporta vietu un ekipējumu</title>
+<meta name="description" content="SportaBiedrs.lv apvieno sporta partneru meklēšanu, sporta vietu karti, ekipējumu, ziņas un rezervāciju vienā platformā.">
+<meta name="stripe-publishable-key" content="pk_test_51UFeR2BUWvu7faaHHp9yZNgQ9muJaQtLu2YJZvGqUYzArS1PnkeMxthLCrmrju1NGg79jXUiXC7sGhqWLRhuttp00Is5sf4rh">
+<meta name="theme-color" content="#121311">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://sportabiedrs.lv/">
+<meta property="og:title" content="SportaBiedrs.lv · Atrodi biedru, sporta vietu un ekipējumu">
+<meta property="og:description" content="Vienotais Latvijas sportistu tīkls: Padel, teniss, basketbols, fitness un 185+ sporta bāzes kartē.">
+<meta property="og:image" content="https://sportabiedrs.lv/assets/og-image-v3.jpg">
+<meta property="og:url" content="https://sportabiedrs.lv/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SportaBiedrs.lv">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SportaBiedrs.lv · Atrodi biedru, sporta vietu un ekipējumu">
+<meta name="twitter:description" content="Vienotais Latvijas sportistu tīkls: Padel, teniss, basketbols, fitness un 185+ sporta bāzes kartē.">
+<meta name="twitter:image" content="https://sportabiedrs.lv/assets/og-image-v3.jpg">
+<link rel="preload" as="image" href="assets/hero-training.webp" imagesrcset="assets/hero-training-1200.webp 1200w, assets/hero-training.webp 2000w" imagesizes="100vw" type="image/webp" fetchpriority="high">
+<link rel="preload" as="font" href="assets/fonts/roboto-flex-latin-wdth-normal.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="assets/fonts/geologica-latin-wght-normal.woff2" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sportabiedrs.lv/#organization",
+      "name": "SportaBiedrs",
+      "url": "https://sportabiedrs.lv/",
+      "logo": "https://sportabiedrs.lv/favicon.svg",
+      "description": "Sporta partneru tīkls, sporta vietu karte un inventāra veikals Latvijā."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sportabiedrs.lv/#website",
+      "url": "https://sportabiedrs.lv/",
+      "name": "SportaBiedrs",
+      "publisher": { "@id": "https://sportabiedrs.lv/#organization" },
+      "inLanguage": "lv"
+    },
+    {
+      "@type": "OnlineStore",
+      "@id": "https://sportabiedrs.lv/#store",
+      "name": "SportaBiedrs Veikals",
+      "url": "https://sportabiedrs.lv/#shop",
+      "description": "Sporta inventārs un ekipējums ar Omniva piegādi 1-2 darba dienās un 14 dienu naudas atgriešanas garantiju."
+    }
+  ]
+}
+</script>
+<script>if(location.protocol==='http:'&&!/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)){location.replace('https://'+location.host+location.pathname+location.search+location.hash)}</script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="tokens.css?v=20">
+<link rel="stylesheet" href="styles.css?v=62">
+<script defer crossorigin="anonymous" src="https://relative-blowfish-9974.clerk.accounts.dev/npm/@clerk/ui@1/dist/ui.browser.js" type="text/javascript"></script>
+<script defer crossorigin="anonymous" data-clerk-publishable-key="pk_test_cmVsYXRpdmUtYmxvd2Zpc2gtOTk3NC5jbGVyay5hY2NvdW50cy5kZXYk" src="https://relative-blowfish-9974.clerk.accounts.dev/npm/@clerk/clerk-js@6/dist/clerk.browser.js" type="text/javascript"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Pāriet uz saturu</a>
+
+<header class="site-header" data-header-state="hero">
+  <div class="nav wrap">
+    <div class="nav-left">
+      <a class="wordmark" href="#main" aria-label="SportaBiedrs.lv"><span>Sporta<em>Biedrs</em></span></a>
+      <nav aria-label="Galvenā navigācija" data-i18n-aria="navMainAria">
+        <a href="#finder" data-langtext="finder">Atrast biedru</a>
+        <a href="#matches" data-langtext="matches">Spēles</a>
+        <a href="#map" data-langtext="map">Karte</a>
+        <a href="#shop" data-langtext="shop">Veikals</a>
+        <a href="#messages"><span data-langtext="messages">Ziņas</span><span class="nav-msg-badge" id="navMsgBadge" style="display:none;">1</span></a>
+        <a href="#about" data-langtext="about">Par mums</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <button type="button" class="nav-search" onclick="scrollToSection('finder')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><span data-i18n="quickSearch">Meklēt</span></button>
+      <div class="language-switcher" id="languageSwitcher">
+        <button type="button" class="lang-current" id="langCurrent" aria-haspopup="menu" aria-expanded="false" aria-label="Valoda / Language"><span id="langCurrentLabel">LV</span><svg class="lang-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="lang-menu" id="langMenu" role="menu" hidden>
+          <button type="button" class="lang-btn" data-lang="lv" role="menuitem">LV <small>Latviešu</small></button>
+          <button type="button" class="lang-btn" data-lang="en" role="menuitem">EN <small>English</small></button>
+          <button type="button" class="lang-btn" data-lang="ru" role="menuitem">RU <small>Русский</small></button>
+        </div>
+      </div>
+      <button type="button" class="cart-toggle" onclick="toggleCart(true)"><span class="cart-text" data-i18n="cart">Grozs</span><span id="cartCount">0</span></button>
+      <div id="clerkSignedOut" class="auth-signed-out"><button type="button" class="btn btn-quiet" id="clerkSignInBtn" data-langtext="signin">Ienākt</button><button type="button" class="btn btn-solid" id="clerkSignUpBtn" data-langtext="signup">Reģistrēties</button></div>
+      <div id="clerkSignedIn" hidden><div id="clerkUserButton"></div></div>
+      <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Atvērt izvēlni" data-i18n-aria="openMenu" aria-expanded="false" aria-controls="mobileNavPanel"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav-scrim" id="mobileNavScrim" hidden></div>
+<div class="mobile-nav-panel" id="mobileNavPanel" hidden>
+  <nav aria-label="Mobilā navigācija" data-i18n-aria="navMobileAria">
+    <a href="#finder" data-langtext="finder">Atrast biedru</a>
+    <a href="#matches" data-langtext="matches">Spēles</a>
+    <a href="#map" data-langtext="map">Karte</a>
+    <a href="#shop" data-langtext="shop">Veikals</a>
+    <a href="#messages" data-langtext="messages">Ziņas</a>
+    <a href="#about" data-langtext="about">Par mums</a>
+    <a href="solutions.html" data-i18n="navSolutions">Risinājumi klubiem</a>
+    <a href="case-studies.html" data-i18n="navCases">Pieredze</a>
+    <a href="contact.html" data-i18n="contactsLink">Kontakti</a>
+  </nav>
+</div>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-stage">
+    <div class="hero-media" aria-hidden="true">
+      <img src="assets/hero-training.webp" srcset="assets/hero-training-1200.webp 1200w, assets/hero-training.webp 2000w" sizes="100vw" alt="Cilvēku grupa kopā trenējas ārā saulainā rītā" loading="eager" fetchpriority="high" decoding="async" width="2000" height="1333">
+      <div class="hero-media-overlay"></div>
+    </div>
+    <div class="wrap hero-inner">
+      <p class="hero-kicker"><span data-i18n="heroKicker">Partneri · Vietas · Ekipējums</span><span class="hero-kicker-sep" aria-hidden="true"></span><span data-i18n="heroKickerPlace">Latvija</span></p>
+      <h1 id="hero-title" class="hero-slogan">
+        <span class="hero-line">VIENATNĒ</span>
+        <span class="hero-line"><em>TRENĒTIES IR</em></span>
+        <span class="hero-line">VAKARDIENA</span>
+      </h1>
+      <p class="lede" data-langtext="hero-desc">Atrodi cilvēku kopīgam treniņam, sporta vietu tuvumā un labāko ekipējumu vienuviet. Mazāk meklēšanas, vairāk kustības.</p>
+    </div>
+  </div>
+
+  <div class="hero-dock">
+    <div class="wrap hero-dock-inner">
+      <div class="hero-search-shell" role="search">
+        <div class="hero-search-field custom-dropdown-wrap" id="wrapHeroSport">
+          <label for="hSport" id="lblHeroSport" data-i18n="sport">Sporta veids</label>
+          <button type="button" class="custom-select-trigger" id="btnHeroSport" aria-haspopup="listbox" aria-expanded="false" aria-controls="menuHeroSport" aria-labelledby="lblHeroSport textHeroSport">
+            <span class="custom-select-value">
+              <span class="custom-select-glyph" id="glyphHeroSport"></span>
+              <span class="custom-select-text" id="textHeroSport">Padel</span>
+            </span>
+            <svg class="custom-select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="custom-dropdown-menu" id="menuHeroSport" role="listbox" aria-labelledby="lblHeroSport" hidden></div>
+          <select id="hSport" class="sr-only" tabindex="-1" aria-hidden="true">
+            <option value="">Visi sporta veidi</option>
+            <option value="padel" selected>Padel</option>
+            <option value="tennis">Teniss</option>
+            <option value="basketball">Basketbols</option>
+            <option value="football">Futbols</option>
+            <option value="volleyball">Volejbols</option>
+            <option value="hockey">Hokejs</option>
+            <option value="fitness">Fitnesa zāle</option>
+            <option value="swimming">Peldēšana</option>
+            <option value="running">Skriešana</option>
+            <option value="cycling">Velosports</option>
+            <option value="discgolf">Disku golfs</option>
+            <option value="golf">Golfs</option>
+            <option value="boxing">Bokss / MMA</option>
+            <option value="extreme">Ekstrēmie sporti</option>
+            <option value="climbing">Klinšu kāpšana</option>
+          </select>
+        </div>
+
+        <div class="hero-search-field custom-dropdown-wrap" id="wrapHeroCity">
+          <label for="hCity" id="lblHeroCity" data-i18n="city">Pilsēta</label>
+          <button type="button" class="custom-select-trigger" id="btnHeroCity" aria-haspopup="listbox" aria-expanded="false" aria-controls="menuHeroCity" aria-labelledby="lblHeroCity textHeroCity">
+            <span class="custom-select-value">
+              <span class="custom-select-glyph" id="glyphHeroCity"></span>
+              <span class="custom-select-text" id="textHeroCity">Rīga</span>
+            </span>
+            <svg class="custom-select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="custom-dropdown-menu" id="menuHeroCity" role="listbox" aria-labelledby="lblHeroCity" hidden></div>
+          <select id="hCity" class="sr-only" tabindex="-1" aria-hidden="true">
+            <option value="">Visa Latvija</option>
+            <option value="Rīga" selected>Rīga</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-volt hero-search-btn" onclick="heroSearch()">
+          <span data-i18n="heroSearchCta">Atrast treniņu partneri</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <dl class="hero-proof-strip">
+        <div class="proof-item"><dt data-i18n="heroStatVenues">Sporta vietas</dt><dd id="statVenues">207</dd></div>
+        <div class="proof-item"><dt data-i18n="heroStatSports">Sporta veidi</dt><dd id="statSports">15</dd></div>
+        <div class="proof-item"><dt data-i18n="heroStatCities">Pilsētas</dt><dd id="statCities">37</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="facilities-endorsement-strip partner-strip-section" aria-label="Sporta bāzes un infrastruktūra">
+  <div class="wrap facilities-strip-inner">
+    <div class="strip-header-label">
+      <span class="strip-kicker" data-i18n="registryTitle">Valsts sporta bāzu reģistrs</span>
+      <span class="strip-figure"><strong>1&#8239;207</strong> <span data-i18n="registryLabel">reģistrētas sporta bāzes</span></span>
+      <span class="strip-source" data-i18n="registryNote">IZM dati · 207 verificētas kartē</span>
+    </div>
+    <div class="facilities-badge-track">
+      <span class="facility-track-label" data-i18n="stripOnMap">Kartē</span>
+      <button type="button" class="facility-badge" onclick="filterVenueFromStrip('MH Padel Club')"><span>MH Padel Club</span><small>Mārupe</small></button>
+      <button type="button" class="facility-badge" onclick="filterVenueFromStrip('Tenisa klubs ENRI')"><span>Tenisa klubs ENRI</span><small>Rīga</small></button>
+      <button type="button" class="facility-badge" onclick="filterVenueFromStrip('Siguldas sporta centrs')"><span>Siguldas sporta centrs</span><small>Sigulda</small></button>
+      <button type="button" class="facility-badge" onclick="filterVenueFromStrip('Ozo Golf Club')"><span>Ozo Golf Club</span><small>Rīga</small></button>
+      <button type="button" class="facility-badge" onclick="filterVenueFromStrip('LNK Sporta Parks')"><span>LNK Sporta Parks</span><small>Rīga</small></button>
+    </div>
+  </div>
+</section>
+
+<section class="section sports-section" id="sports" aria-labelledby="sports-title">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div class="section-head-main">
+        <div class="section-kicker"><span class="section-index" aria-hidden="true">00</span><span class="eyebrow" data-i18n="sportsEyebrow">Sporta veidi</span></div>
+        <h2 id="sports-title" data-i18n="sportsTitle">Izvēlies savu sportu</h2>
+      </div>
+      <div class="section-head-aside">
+        <p class="section-intro" data-i18n="sportsIntro">Viens klikšķis atlasa partnerus un vietas kartē pēc sporta veida.</p>
+        <div class="rail-controls">
+          <button type="button" class="rail-btn" data-rail-dir="-1" aria-label="Iepriekšējie sporta veidi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></button>
+          <button type="button" class="rail-btn" data-rail-dir="1" aria-label="Nākamie sporta veidi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="sport-rail" id="sportRail">
+    <li><button type="button" class="sport-tile" data-sport-key="padel" onclick="heroQuickSport('padel')"><img src="assets/sports/padel-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="373" style="--pos:30% 50%"><span class="sport-tile-index">01</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="padel">Padel</span><span class="sport-tile-count" data-sport-count="padel"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="tennis" onclick="heroQuickSport('tennis')"><img src="assets/sports/tennis-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="840" style="--pos:50% 30%"><span class="sport-tile-index">02</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="tennis">Teniss</span><span class="sport-tile-count" data-sport-count="tennis"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="basketball" onclick="heroQuickSport('basketball')"><img src="assets/sports/basketball-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="767" style="--pos:40% 45%"><span class="sport-tile-index">03</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="basketball">Basketbols</span><span class="sport-tile-count" data-sport-count="basketball"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="football" onclick="heroQuickSport('football')"><img src="assets/sports/football-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="747" style="--pos:50% 55%"><span class="sport-tile-index">04</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="football">Futbols</span><span class="sport-tile-count" data-sport-count="football"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="volleyball" onclick="heroQuickSport('volleyball')"><img src="assets/sports/volleyball-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="323" style="--pos:45% 50%"><span class="sport-tile-index">05</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="volleyball">Volejbols</span><span class="sport-tile-count" data-sport-count="volleyball"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="hockey" onclick="heroQuickSport('hockey')"><img src="assets/sports/hockey-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="373" style="--pos:44% 50%"><span class="sport-tile-index">06</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="hockey">Hokejs</span><span class="sport-tile-count" data-sport-count="hockey"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="fitness" onclick="heroQuickSport('fitness')"><img src="assets/sports/fitness-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="373" style="--pos:70% 50%"><span class="sport-tile-index">07</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="fitness">Fitnesa zāle</span><span class="sport-tile-count" data-sport-count="fitness"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="swimming" onclick="heroQuickSport('swimming')"><img src="assets/sports/swimming-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="373" style="--pos:52% 50%"><span class="sport-tile-index">08</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="swimming">Peldēšana</span><span class="sport-tile-count" data-sport-count="swimming"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="running" onclick="heroQuickSport('running')"><img src="assets/sports/running-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="373" style="--pos:35% 50%"><span class="sport-tile-index">09</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="running">Skriešana</span><span class="sport-tile-count" data-sport-count="running"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="cycling" onclick="heroQuickSport('cycling')"><img src="assets/sports/cycling-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="373" style="--pos:30% 50%"><span class="sport-tile-index">10</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="cycling">Velosports</span><span class="sport-tile-count" data-sport-count="cycling"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="discgolf" onclick="heroQuickSport('discgolf')"><img src="assets/sports/discgolf-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="373" style="--pos:66% 50%"><span class="sport-tile-index">11</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="discgolf">Disku golfs</span><span class="sport-tile-count" data-sport-count="discgolf"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="golf" onclick="heroQuickSport('golf')"><img src="assets/sports/golf-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="560" style="--pos:55% 50%"><span class="sport-tile-index">12</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="golf">Golfs</span><span class="sport-tile-count" data-sport-count="golf"></span></span></button></li>
+    <li><button type="button" class="sport-tile" data-sport-key="boxing" onclick="heroQuickSport('boxing')"><img src="assets/sports/boxing-sm.webp" alt="" loading="lazy" decoding="async" width="560" height="373" style="--pos:58% 40%"><span class="sport-tile-index">13</span><span class="sport-tile-meta"><span class="sport-tile-name" data-sport-label="boxing">Bokss / MMA</span><span class="sport-tile-count" data-sport-count="boxing"></span></span></button></li>
+  </ul>
+</section>
+
+<section class="section finder-section" id="finder">
+  <div class="wrap">
+    <div class="finder-intro">
+      <div class="section-head section-head--row">
+        <div class="section-head-main">
+          <div class="section-kicker"><span class="section-index" aria-hidden="true">01</span><span class="eyebrow">Kopiena</span></div>
+          <h2 data-i18n="finderTitle">Atrodi treniņu partneri savā pilsētā</h2>
+        </div>
+        <div class="section-head-aside">
+          <p class="section-intro" data-i18n="finderIntro">Izvēlies sporta veidu, pilsētu un līmeni, lai atrastu piemērotu treniņu biedru.</p>
+        </div>
+      </div>
+    </div>
+    <div class="finder-panel">
+      <div class="finder-sport-pills">
+        <button type="button" class="finder-pill chip-btn" data-sport="Padel" onclick="setFinderSport('Padel')">Padel</button>
+        <button type="button" class="finder-pill chip-btn" data-sport="Teniss" onclick="setFinderSport('Teniss')">Teniss</button>
+        <button type="button" class="finder-pill chip-btn" data-sport="Basketbols" onclick="setFinderSport('Basketbols')">Basketbols</button>
+        <button type="button" class="finder-pill chip-btn" data-sport="Futbols" onclick="setFinderSport('Futbols')">Futbols</button>
+        <button type="button" class="finder-pill chip-btn" data-sport="Fitnesa zāle" onclick="setFinderSport('Fitnesa zāle')">Fitness</button>
+      </div>
+      <div class="filter-row">
+        <label class="field"><span data-i18n="sport">Sporta veids</span><select id="fSport"><option value="">Visi sporta veidi</option><option value="Padel">Padel</option><option value="Teniss">Teniss</option><option value="Basketbols">Basketbols</option><option value="Futbols">Futbols</option><option value="Volejbols">Volejbols</option><option value="Hokejs">Hokejs</option><option value="Fitnesa zāle">Fitnesa zāle</option><option value="Peldēšana">Peldēšana</option><option value="Skriešana">Skriešana</option><option value="Velosports">Velosports</option><option value="Disku golfs">Disku golfs</option><option value="Golfs">Golfs</option><option value="Bokss / MMA">Bokss / MMA</option><option value="Ekstrēmie sporti">Ekstrēmie sporti</option><option value="Klinšu kāpšana">Klinšu kāpšana</option></select></label>
+        <label class="field"><span data-i18n="city">Pilsēta</span><select id="fCity"><option value="">Visa Latvija</option><option>Rīga</option></select></label>
+        <label class="field"><span data-i18n="level">Līmenis</span><select id="fLevel"><option value="">Jebkurš līmenis</option><option>Iesācējs</option><option>Vidējs</option><option>Pieredzējis</option><option>Profesionālis</option></select></label>
+        <button type="button" class="btn btn-solid filter-submit" onclick="findPartners()" data-i18n="search">Meklēt</button>
+      </div>
+      <div class="partners" id="partnerResults" aria-live="polite" aria-busy="false"></div>
+      <div class="finder-foot"><p class="demo-note" data-i18n="demoNote">Rezultāti tiks piesaistīti tavam kontam, kad būsi ielogojies.</p><button type="button" class="finder-reset" onclick="resetPartnerFilters()" data-i18n="resetFilters">Notīrīt</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="section matches-section" id="matches">
+  <div class="wrap">
+    <div class="matches-head section-head section-head--row">
+      <div class="section-head-main">
+        <div class="section-kicker"><span class="section-index" aria-hidden="true">02</span><span class="eyebrow" data-i18n="matchesEyebrow">Atvērtās spēles</span></div>
+        <h2 data-i18n="matchesTitle">Pievienojies spēlei vai meklē dalībniekus</h2>
+      </div>
+      <div class="section-head-aside matches-head-aside">
+        <p class="section-intro" data-i18n="matchesIntro">Trūkst viens vai divi spēlētāji? Pievienojies organizētiem mačiem ar dalītu laukuma īri vai izveido savu spēli.</p>
+        <button type="button" class="btn btn-solid btn-create-match" onclick="openCreateMatchModal()" id="btnOpenCreateMatch">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span data-i18n="btnCreateMatch">+ Pieteikt jaunu spēli</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="matches-panel">
+      <div class="matches-sport-pills-wrap">
+        <button type="button" class="pills-arrow pills-arrow--prev" id="pillsPrev" aria-label="Atpakaļ" hidden><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button type="button" class="pills-arrow pills-arrow--next" id="pillsNext" aria-label="Tālāk"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="matches-sport-pills" id="matchSportPills">
+          <button type="button" class="match-pill chip-btn active" data-sport="" onclick="setMatchFilter('')">
+            <span data-i18n="allMatches">Visas spēles</span> <span class="pill-badge" id="matchesCountAll">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="padel" onclick="setMatchFilter('padel')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Padel</span> <span class="pill-badge" id="matchesCountPadel">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="tennis" onclick="setMatchFilter('tennis')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Teniss</span> <span class="pill-badge" id="matchesCountTennis">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="basketball" onclick="setMatchFilter('basketball')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Basketbols</span> <span class="pill-badge" id="matchesCountBasketball">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="football" onclick="setMatchFilter('football')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Futbols</span> <span class="pill-badge" id="matchesCountFootball">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="volleyball" onclick="setMatchFilter('volleyball')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Volejbols</span> <span class="pill-badge" id="matchesCountVolleyball">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="hockey" onclick="setMatchFilter('hockey')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Hokejs</span> <span class="pill-badge" id="matchesCountHockey">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="fitness" onclick="setMatchFilter('fitness')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Fitnesa zāle</span> <span class="pill-badge" id="matchesCountFitness">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="swimming" onclick="setMatchFilter('swimming')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Peldēšana</span> <span class="pill-badge" id="matchesCountSwimming">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="running" onclick="setMatchFilter('running')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Skriešana</span> <span class="pill-badge" id="matchesCountRunning">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="cycling" onclick="setMatchFilter('cycling')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Velosports</span> <span class="pill-badge" id="matchesCountCycling">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="discgolf" onclick="setMatchFilter('discgolf')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Disku golfs</span> <span class="pill-badge" id="matchesCountDiscgolf">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="golf" onclick="setMatchFilter('golf')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Golfs</span> <span class="pill-badge" id="matchesCountGolf">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="boxing" onclick="setMatchFilter('boxing')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Bokss / MMA</span> <span class="pill-badge" id="matchesCountBoxing">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="extreme" onclick="setMatchFilter('extreme')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Ekstrēmie sporti</span> <span class="pill-badge" id="matchesCountExtreme">0</span>
+          </button>
+          <button type="button" class="match-pill chip-btn" data-sport="climbing" onclick="setMatchFilter('climbing')">
+            <span class="pill-icon" aria-hidden="true"></span> <span class="pill-label">Klinšu kāpšana</span> <span class="pill-badge" id="matchesCountClimbing">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="matches-grid" id="matchesGrid" aria-live="polite"></div>
+
+      <div class="matches-pager" id="matchesPager">
+        <div class="matches-pager-info" id="matchesPagerInfo">Rāda 1–4 no 15 spēlēm</div>
+        <div class="matches-pager-controls">
+          <button type="button" class="pager-nav-btn" id="matchesPrev" onclick="moveMatchPage(-1)" aria-label="Iepriekšējā lapa">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="matches-pager-dots" id="matchesPagerDots" aria-label="Lapas"></div>
+          <span class="pager-counter" id="matchesPageLabel">1 / 4</span>
+          <button type="button" class="pager-nav-btn" id="matchesNext" onclick="moveMatchPage(1)" aria-label="Nākamā lapa">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section map-section" id="map">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div class="section-head-main">
+        <div class="section-kicker"><span class="section-index" aria-hidden="true">03</span><span class="eyebrow">Karte</span></div>
+        <h2 data-i18n="mapTitle">Sporta vietas visā Latvijā</h2>
+      </div>
+      <div class="section-head-aside">
+        <p class="section-intro" data-i18n="mapIntro">Konkrētas sporta vietas ar adresi, pakalpojumu cenām un precīzu koordinātu kartē. Filtrē pēc sporta veida, pilsētas un cenas.</p>
+      </div>
+    </div>
+    <div class="map-controls">
+      <label class="field"><span data-i18n="sport">Sporta veids</span><select id="mSport"><option value="">Visi</option><option value="padel">Padel</option><option value="tennis">Teniss</option><option value="basketball">Basketbols</option><option value="football">Futbols</option><option value="volleyball">Volejbols</option><option value="hockey">Hokejs</option><option value="fitness">Fitnesa zāle</option><option value="swimming">Peldēšana</option><option value="running">Skriešana</option><option value="cycling">Velosports</option><option value="discgolf">Disku golfs</option><option value="golf">Golfs</option><option value="boxing">Bokss / MMA</option><option value="extreme">Ekstrēmie sporti</option><option value="climbing">Klinšu kāpšana</option></select></label>
+      <label class="field"><span data-i18n="city">Pilsēta</span><select id="mCity"><option value="">Visas pilsētas</option><option value="Rīga">Rīga</option></select></label>
+      <div class="field grow map-price-field"><div class="map-price-head"><span class="map-price-title" data-i18n="priceLabel">Maksimālā norādītā cena</span><b id="priceLabel" class="price-badge">€80</b></div><div class="map-slider-wrap"><input id="mPrice" type="range" min="0" max="80" step="1" value="80" aria-label="Maksimālā norādītā cena"><span class="slider-floating-bubble" id="priceBubble" aria-hidden="true">€80</span></div><div class="map-slider-ticks" aria-hidden="true"><span>€0</span><span>€20</span><span>€40</span><span>€60</span><span>€80</span></div></div>
+      <button type="button" class="btn btn-outline" onclick="resetMapFilters()" data-i18n="clear">Notīrīt</button>
+    </div>
+    <div class="map-layout">
+      <div class="map-shell">
+        <div class="map-toolbar"><span id="mapCountBadge">- vietas</span><button type="button" id="mapResetBtn" class="map-reset-btn" onclick="resetMapView()">Rīga · 12. līmenis</button></div>
+        <div id="leafletMap"></div>
+      </div>
+      <aside class="venue-browser" aria-label="Sporta vietu saraksts">
+        <div class="venue-browser-head">
+          <div class="vb-title-cluster"><div class="vb-title-main"><strong>Vietas</strong></div><span class="vb-count-pill" id="venueMiniCountBadge"><span id="venueMiniCount">-</span></span></div>
+          <div class="pager"><button type="button" id="venuePrev" class="pager-nav-btn" onclick="venuePageMove(-1)" aria-label="Iepriekšējā lapa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button><span id="venuePageLabel" class="pager-counter">1 / 1</span><button type="button" id="venueNext" class="pager-nav-btn" onclick="venuePageMove(1)" aria-label="Nākamā lapa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button></div>
+        </div>
+        <div class="venue-search-wrap">
+          <div class="venue-search-box"><svg class="search-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg><input type="text" id="venueSidebarSearch" placeholder="Meklēt vietu, klubu vai ielu..." data-i18n-placeholder="venueSearchPlaceholder" oninput="onVenueSidebarSearch(this.value)" autocomplete="off" aria-label="Meklēt vietu"><button type="button" id="venueSidebarSearchClear" class="search-clear-btn" onclick="clearVenueSidebarSearch()" hidden aria-label="Notīrīt meklēšanu">×</button></div>
+          <div class="venue-quick-chips" id="venueQuickChips"><button type="button" class="v-chip active" data-sport="" onclick="filterVenueByQuickChip('')" data-i18n="all">Visi</button><button type="button" class="v-chip" data-sport="padel" onclick="filterVenueByQuickChip('padel')">Padel</button><button type="button" class="v-chip" data-sport="tennis" onclick="filterVenueByQuickChip('tennis')">Teniss</button><button type="button" class="v-chip" data-sport="basketball" onclick="filterVenueByQuickChip('basketball')">Basketbols</button><button type="button" class="v-chip" data-sport="football" onclick="filterVenueByQuickChip('football')">Futbols</button><button type="button" class="v-chip" data-sport="fitness" onclick="filterVenueByQuickChip('fitness')">Fitness</button></div>
+        </div>
+        <div id="venueList" role="region" aria-live="polite" aria-label="Vietu saraksts"></div>
+      </aside>
+    </div>
+    <p class="section-note">Vietu dati ir apkopoti prototipam. Īstām rezervācijām katram sporta klubam nepieciešama partnera vai rezervācijas API integrācija. Vietu fotogrāfijas tiek rādītas tikai tad, ja ir pieejams konkrētās vietas attēla avots.</p>
+  </div>
+</section>
+
+<section class="section shop-section" id="shop">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div class="section-head-main">
+        <div class="section-kicker"><span class="section-index" aria-hidden="true">04</span><span class="eyebrow">Veikals</span></div>
+        <h2 data-i18n="shopTitle">Sporta inventārs &amp; ekipējums</h2>
+      </div>
+      <div class="section-head-aside">
+        <p class="section-intro" data-i18n="shopIntro">Pārbaudīts ekipējums no vadošajiem zīmoliem ar ātru piegādi un garantiju.</p>
+      </div>
+    </div>
+    <ul class="shop-trust-badges">
+      <li class="shop-trust-pill"><span class="trust-pill-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></span><span class="trust-pill-text"><strong data-i18n="trustShipTitle">Omniva pakomāti</strong><span data-i18n="trustShipText">1-2 darba dienas</span></span></li>
+      <li class="shop-trust-pill"><span class="trust-pill-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg></span><span class="trust-pill-text"><strong data-i18n="trustReturnTitle">14 dienu atgriešana</strong><span data-i18n="trustReturnText">Bez liekiem jautājumiem</span></span></li>
+      <li class="shop-trust-pill"><span class="trust-pill-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg></span><span class="trust-pill-text"><strong data-i18n="trustOrigTitle">Oriģinālas preces</strong><span data-i18n="trustOrigText">No oficiāliem izplatītājiem</span></span></li>
+      <li class="shop-trust-pill"><span class="trust-pill-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span class="trust-pill-text"><strong data-i18n="trustPayTitle">Droša apmaksa</strong><span data-i18n="trustPayText">Stripe · kartes, Apple Pay, Google Pay</span></span></li>
+    </ul>
+
+    <div class="shop-filter-bar">
+      <div class="shop-pills" id="shopSportPills">
+        <button type="button" class="shop-pill active" data-sport="" onclick="filterShopByPill('')">Visi produkti</button>
+      </div>
+      <select id="pSport" hidden><option value="">Visi</option></select>
+      <div class="shop-toolbar">
+        <span class="shop-count" id="shopItemCount"></span>
+        <div class="shop-sort-wrap">
+          <label for="pSort" data-i18n="sortLabel">Kārtot</label>
+          <select id="pSort">
+            <option value="default">Ieteicamie</option>
+            <option value="price_asc">Cena: no zemākās</option>
+            <option value="price_desc">Cena: no augstākās</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-grid" id="shopGrid"></div>
+  </div>
+</section>
+
+<section class="section messages-section" id="messages">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div class="section-head-main">
+        <div class="section-kicker"><span class="section-index" aria-hidden="true">05</span><span class="eyebrow">Ziņas</span></div>
+        <h2 data-i18n="messagesTitle">Saruna ar biedriem</h2>
+      </div>
+      <div class="section-head-aside">
+        <p class="section-intro" data-i18n="messagesIntro">Izvēlies kontaktu kreisajā pusē un sarunā kopīgu treniņu.</p>
+      </div>
+    </div>
+    <div class="chat-shell">
+      <aside class="chat-list">
+        <div class="chat-list-head"><strong>Kontakti</strong><span>Aktīvie</span></div>
+        <div id="chatList"></div>
+      </aside>
+      <div class="chat-main">
+        <div class="chat-head" id="chatHead"></div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-quick"><button type="button" onclick="resetDMHistory()">Sākt no jauna</button><button type="button" onclick="document.getElementById('chatInput').value='Kad tev der?';document.getElementById('chatForm').requestSubmit()">Kad der?</button><button type="button" onclick="document.getElementById('chatInput').value='Kur satiekamies?';document.getElementById('chatForm').requestSubmit()">Kur satiekamies?</button><button type="button" onclick="go('map')">Atvērt karti</button></div>
+        <form id="chatForm" class="chat-input" onsubmit="sendDM(event)"><input id="chatInput" placeholder="Raksti ziņu..." autocomplete="off" aria-label="Ziņa"><button type="submit">Sūtīt</button></form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about-section" id="about">
+  <div class="wrap">
+    <div class="section-head section-head--row">
+      <div class="section-head-main">
+        <div class="section-kicker"><span class="section-index" aria-hidden="true">06</span><span class="eyebrow">Par mums</span></div>
+        <h2 data-i18n="aboutTitle">Par SportaBiedrs</h2>
+      </div>
+      <div class="section-head-aside">
+        <p class="section-intro" data-i18n="aboutIntro">Vienota platforma Latvijas aktīvā sporta kopienai, laukumiem un ekipējumam.</p>
+      </div>
+    </div>
+    <div class="about-steps">
+      <article class="about-step"><span class="about-step-num" aria-hidden="true">01</span><h3>Atrodi partneri</h3><p>Filtrē pēc sporta, pilsētas un līmeņa.</p></article>
+      <article class="about-step"><span class="about-step-num" aria-hidden="true">02</span><h3>Atrodi vietu</h3><p>Karte ar cenām, vērtējumiem un rezervācijas sākumpunktu.</p></article>
+      <article class="about-step"><span class="about-step-num" aria-hidden="true">03</span><h3>Nopērc ekipējumu</h3><p>Pārbaudīts inventārs ar drošu Stripe apmaksu un Omniva piegādi 1-2 darba dienās.</p></article>
+      <article class="about-step"><span class="about-step-num" aria-hidden="true">04</span><h3>Sarunā treniņu</h3><p>Saskaņo laiku un vietu sarakstē, pēc tam rezervē laukumu, kur tas pieejams.</p></article>
+    </div>
+    <figure class="about-banner">
+      <img src="assets/sports/volleyball.webp" alt="Pludmales volejbols saulrietā" loading="lazy" decoding="async" width="1100" height="634">
+      <figcaption class="about-mission-strip">
+        <p class="mission-text" data-i18n="aboutMission">Mūsu mērķis ir padarīt sporta dzīvi Latvijā pieejamāku un vienotāku. Mazāk organizatorisko rūpju, vairāk prieka kustībā.</p>
+        <a class="btn btn-volt" href="about.html"><span data-i18n="aboutMore">Vairāk par projektu</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="wordmark" href="#main" aria-label="SportaBiedrs.lv"><span>Sporta<em>Biedrs</em></span></a>
+      <p>Sporta partneru, vietu, ziņu un ekipējuma platforma Latvijā.</p>
+      <ul class="footer-trust-strip">
+        <li class="footer-trust-pill">Stripe</li>
+        <li class="footer-trust-pill" data-i18n="footerShip">Omniva 1-2 d.</li>
+        <li class="footer-trust-pill" data-i18n="footerReturns">14 d. atgriešana</li>
+      </ul>
+    </div>
+    <div>
+      <strong>Platforma</strong>
+      <a href="#finder">Atrast biedru</a>
+      <a href="#map">Karte</a>
+      <a href="#shop">Veikals</a>
+      <a href="#messages">Ziņas</a>
+      <a href="solutions.html" data-i18n="navSolutions">Risinājumi klubiem</a>
+    </div>
+    <div>
+      <strong>Informācija</strong>
+      <a href="about.html">Par projektu</a>
+      <a href="contact.html">Kontakti</a>
+      <a href="https://www.omniva.lv/en/parcel-machine-locations/" target="_blank" rel="noopener noreferrer">Omniva lokācijas</a>
+      <a href="accessibility.html">Pieejamība</a>
+      <a href="resources.html" data-i18n="footerResources">Sporta resursi</a>
+    </div>
+    <div>
+      <strong>Juridiski</strong>
+      <a href="terms.html">Pirkumu noteikumi</a>
+      <a href="delivery-returns.html">Piegāde un atgriešana</a>
+      <a href="withdrawal.html">Atteikuma veidlapa</a>
+      <a href="privacy.html">Privātuma politika</a>
+      <a href="cookies.html">Sīkdatņu politika</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="footer-newsletter-card">
+      <div class="footer-newsletter-text">
+        <h4 data-i18n="newsTitle">Pievienojies Latvijas sporta kopienai</h4>
+        <p data-i18n="newsText">Reizi mēnesī: jaunas vietas kartē, turnīri un inventāra akcijas. Bez surogātpasta.</p>
+      </div>
+      <form class="footer-newsletter-form" id="newsletterForm" onsubmit="subscribeNewsletter(event)">
+        <input type="email" name="email" placeholder="Tavs e-pasts" data-i18n-placeholder="newsPlaceholder" required aria-label="E-pasts jaunumiem" autocomplete="email">
+        <button type="submit" data-i18n="newsButton">Pierakstīties</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-mega" aria-hidden="true">SportaBiedrs</div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 SportaBiedrs.lv</span>
+    <span>Rīga · Latvija</span>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim" onclick="toggleCart(false)"></div><aside class="cart-drawer" id="cartDrawer" aria-label="Grozs"><div class="drawer-head"><div><p class="eyebrow">Tavs</p><h3>Grozs</h3></div><button type="button" class="icon-btn" onclick="toggleCart(false)" aria-label="Aizvērt grozu" data-i18n-aria="close"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="cart-items" id="cartItems"></div><div class="drawer-foot"><div class="cart-total"><span>Kopā</span><strong id="cartTotal">0,00 €</strong></div><button type="button" class="btn btn-solid btn-block" onclick="openCheckout()">Doties uz drošo kasi →</button></div></aside>
+
+<div class="modal-scrim" id="createMatchModal" role="dialog" aria-modal="true" aria-labelledby="createMatchTitle">
+  <div class="modal match-modal">
+    <button type="button" class="modal-close icon-btn" onclick="closeCreateMatchModal()" aria-label="Aizvērt spēles formu">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="match-modal-head">
+      <p class="eyebrow" data-i18n="createMatchEyebrow">Organizēt spēli</p>
+      <h3 class="serif-h" id="createMatchTitle" data-i18n="createMatchTitle">Pieteikt jaunu spēli</h3>
+      <p class="modal-sub" data-i18n="createMatchIntro">Izveido maču, norādi laukumu un spēlētāju skaitu. Citi lietotāji varēs uzreiz pieteikties vai rakstīt tev čatā.</p>
+    </div>
+    <form id="createMatchForm" class="match-form" onsubmit="handleCreateMatchSubmit(event)">
+      <div class="match-form-grid">
+        <label class="field">
+          <span data-i18n="sport">Sporta veids</span>
+          <select id="cmSport" required>
+            <option value="padel">Padel</option>
+            <option value="tennis">Teniss</option>
+            <option value="basketball">Basketbols</option>
+            <option value="football">Futbols</option>
+            <option value="volleyball">Volejbols</option>
+          </select>
+        </label>
+        <label class="field">
+          <span data-i18n="city">Pilsēta</span>
+          <select id="cmCity" required></select>
+        </label>
+      </div>
+
+      <div class="match-form-grid">
+        <label class="field">
+          <span data-i18n="venueNameLabel">Laukuma nosaukums</span>
+          <input type="text" id="cmVenue" placeholder="Piem., Mārupes Padel Club" required>
+        </label>
+        <label class="field">
+          <span data-i18n="venueAddressLabel">Adrese</span>
+          <input type="text" id="cmAddress" placeholder="Piem., Mārupes Parks 1" required>
+        </label>
+      </div>
+
+      <div class="match-form-grid-3">
+        <label class="field">
+          <span data-i18n="timeTextLabel">Laiks / Datums</span>
+          <input type="text" id="cmTime" placeholder="Šodien 19:30 vai Rīt 18:00" required>
+        </label>
+        <label class="field">
+          <span data-i18n="levelLabel">Līmenis</span>
+          <input type="text" id="cmLevel" placeholder="Vidējs (2.5 - 3.5)" required>
+        </label>
+        <label class="field">
+          <span data-i18n="pricePerPlayerLabel">Maksa par spēlētāju</span>
+          <input type="text" id="cmPrice" placeholder="Piem., 8 € / spēlētājs" required>
+        </label>
+      </div>
+
+      <div class="match-form-grid">
+        <label class="field">
+          <span data-i18n="maxPlayersLabel">Kopējais vietu skaits</span>
+          <select id="cmMaxPlayers" required>
+            <option value="2">2 spēlētāji (1 pret 1)</option>
+            <option value="4" selected>4 spēlētāji (Dubultspēle / Padel / 2v2)</option>
+            <option value="6">6 spēlētāji (3v3 ielu basketbols)</option>
+            <option value="8">8 spēlētāji (4v4)</option>
+            <option value="10">10 spēlētāji (5v5)</option>
+            <option value="12">12 spēlētāji (Volejbols 6v6)</option>
+          </select>
+        </label>
+        <label class="field">
+          <span data-i18n="hostNameLabel">Tavs vārds (Organizators)</span>
+          <input type="text" id="cmHostName" placeholder="Tavs vārds" required>
+        </label>
+      </div>
+
+      <label class="field">
+        <span data-i18n="noteLabel">Piezīme / Apraksts</span>
+        <textarea id="cmNote" rows="2" placeholder="Apraksti spēles noskaņu, vai laukums jau rezervēts, bumbas u.c." required></textarea>
+      </label>
+
+      <div class="match-form-actions">
+        <button type="button" class="btn btn-outline" onclick="closeCreateMatchModal()" data-i18n="close">Atcelt</button>
+        <button type="submit" class="btn btn-solid" data-i18n="btnPublishMatch">Publicēt spēli →</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-scrim" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingVenue"><div class="modal booking-modal"><button type="button" class="modal-close icon-btn" onclick="closeBooking()" aria-label="Aizvērt rezervāciju"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button><div class="booking-hero"><img id="bookingVenueImage" src="assets/hero-training-1200.webp" alt="Sporta vieta"><div class="booking-hero-overlay"><span>Sporta vieta</span><strong id="bookingVenue"></strong></div></div><div class="booking-meta-row"><div><p class="modal-sub" id="bookingMeta"></p><div class="booking-rating" id="bookingRating"></div></div><div class="booking-price" id="bookingPrice"></div></div><div class="booking-actions"><a id="bookingSource" class="btn btn-outline" target="_blank" rel="noopener">Apskatīt foto un atsauksmes →</a></div><div class="booking-grid"><label class="field"><span>Datums</span><input id="bookingDate" type="date"></label><label class="field"><span>Laiks</span><select id="bookingTime"><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option></select></label><label class="field"><span>Spēlētāji</span><select id="bookingPlayers"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label></div><div class="booking-slots" id="bookingSlots" aria-label="Pieejamie laiki"></div><div class="booking-status" id="bookingStatus" aria-live="polite"></div><div class="booking-payment" id="bookingPayment" hidden><div id="bookingPaymentElement"></div><button type="button" class="btn btn-solid btn-block" id="bookingPayButton" onclick="completeBookingPayment()">Apmaksāt rezervāciju</button></div><button type="button" class="btn btn-solid btn-block" id="bookingContinueButton" onclick="confirmBooking()">Turpināt rezervāciju</button><p class="section-note" id="bookingHint">Izvēlies datumu un pieejamu laiku. Apmaksa tiek sākta tikai tad, kad vietai ir pieslēgta tiešā rezervācija.</p></div></div>
+
+<div class="modal-scrim" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle"><div class="modal checkout-modal"><button type="button" class="modal-close icon-btn" onclick="closeModal('checkoutModal')" aria-label="Aizvērt kasi"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button><div class="checkout-head"><div><p class="eyebrow">PĒRC DROŠI</p><h3 class="serif-h" id="checkoutTitle">Pabeigt pasūtījumu</h3><p class="checkout-subtitle">Piegāde, maksājums un pasūtījuma pārbaude vienuviet.</p></div><span class="secure-pill" aria-label="Stripe droša maksājumu vide"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Stripe Checkout</span></div><div class="checkout-progress"><span class="active" id="stepDot1">1 Dati</span><span id="stepDot2">2 Pārbaude</span><span id="stepDot3">3 Gatavs</span></div>
+<div id="checkoutStep1" class="checkout-layout"><div class="checkout-main"><div class="checkout-card"><h4>Kontakts</h4><div class="two-col"><label class="field"><span>Vārds, uzvārds</span><input id="coName" placeholder="Jānis Bērziņš" autocomplete="name"></label><label class="field"><span>E-pasts</span><input id="coEmail" type="email" placeholder="janis@epasts.lv" autocomplete="email"></label></div></div>
+<div class="checkout-card"><h4>Piegāde</h4><div class="delivery-options"><label><input type="radio" name="delivery" checked onchange="setDelivery('omniva')"><span><b>Omniva</b><small>2,99 € · pakomāts</small></span></label><label><input type="radio" name="delivery" onchange="setDelivery('courier')"><span><b>Kurjers</b><small>4,99 € · līdz durvīm</small></span></label></div><select id="coDelivery" hidden><option value="omniva">omniva</option><option value="courier">courier</option></select><div id="coLockerField"><div class="two-col"><label class="field"><span data-i18n="city">Pilsēta</span><select id="coLockerCity" onchange="populateLockerOptions()"></select></label><label class="field"><span>Pakomāts</span><select id="coLocker"></select></label></div><label class="field"><span>Meklēt pakomātu</span><input id="coLockerSearch" type="search" placeholder="Piemēram, Origo vai Liepāja" oninput="filterLockerOptions()"></label><a class="external-link" href="https://www.omniva.lv/en/parcel-machine-locations/" target="_blank" rel="noopener">Apskatīt visas aktuālās Omniva lokācijas →</a></div><div id="coCourierField" hidden><label class="field"><span>Piegādes adrese</span><input id="coCourierAddress" placeholder="Iela, mājas nr., pilsēta, pasta indekss" autocomplete="street-address"></label></div></div>
+<div class="checkout-card payment-card"><div class="checkout-card-title"><div><h4>Apmaksa</h4><p class="checkout-helper">Apmaksa tiek pabeigta Stripe drošajā maksājumu lapā. Pašlaik šis projekts izmanto Stripe testa režīmu.</p></div><span class="payment-lock"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Droši</span></div><select id="coPay" aria-label="Apmaksas veids" onchange="updateCheckoutFields()"><option value="stripe">Tiešsaistes apmaksa ar Stripe</option><option value="cash">Skaidra nauda pie kurjera</option></select><div class="payment-method-hint"><span>Kartes, ja pieejamas</span><span>Apple Pay / Google Pay, ja kontā pieejams</span></div></div><label class="consent-check"><input id="coTerms" type="checkbox" required><span>Esmu izlasījis <a href="terms.html" target="_blank" rel="noopener">Pirkumu noteikumus</a> un <a href="delivery-returns.html" target="_blank" rel="noopener">piegādes un atteikuma informāciju</a>.</span></label><div class="checkout-guarantee-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>14 dienu atteikuma tiesības un 100% naudas atgriešanas garantija ar Omniva atgriešanu.</span></div><button type="button" class="btn btn-solid btn-block checkout-primary" onclick="reviewOrder()">Pārskatīt pasūtījumu (Drošs pirkums) →</button><p class="checkout-helper">Pirms Stripe loga atvēršanas pārbaudi saņēmēja datus, saņemšanas vietu un kopējo summu. Stripe logā redzēsi kontam pieejamos maksājuma veidus.</p></div><aside class="checkout-side"><div class="summary-card"><div class="summary-head"><b>Tavs grozs</b><span id="checkoutCartCount">0</span></div><div id="checkoutMiniCart"></div><div class="mini-line"><span>Piegāde</span><span id="checkoutMiniShipping">2,99 €</span></div><div class="mini-total"><span>Kopā</span><strong id="checkoutMiniTotal">0,00 €</strong></div></div></aside></div>
+<div id="checkoutStep2" hidden><div class="review-card"><p class="eyebrow">Pārbaude</p><h3 class="serif-h">Viss gatavs</h3><div class="review-lines"><div><span>Piegāde</span><strong id="reviewDelivery"></strong></div><div><span>Apmaksa</span><strong id="reviewPayment"></strong></div><div><span>Kopā</span><strong id="reviewTotal"></strong></div></div><div id="checkoutError" class="checkout-error" role="alert" aria-live="polite" hidden></div><button type="button" class="btn btn-solid btn-block checkout-primary" onclick="confirmOrder()">Droša apmaksa ar Stripe Checkout →</button><button type="button" class="btn btn-quiet btn-block checkout-back" onclick="backToStep1()">← Mainīt datus</button></div></div>
+<div id="checkoutStep3" hidden class="success-state"><div class="success-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div><h3 class="serif-h">Pasūtījums izveidots</h3><p>Ja izvēlēta tiešsaistes apmaksa, Stripe atvērs nākamo soli jaunā vidē.</p><button type="button" class="btn btn-outline btn-block" onclick="closeModal('checkoutModal')">Aizvērt</button></div>
+</div></div>
+
+<div class="modal-scrim auth-overlay" id="clerkAuthModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="clerkAuthTitle">
+  <div class="modal auth-modal-wrap">
+    <button class="modal-close icon-btn" type="button" onclick="closeClerkAuth()" aria-label="Aizvērt"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    <div class="auth-modal-head"><p class="eyebrow" id="clerkAuthEyebrow">Konts</p><h3 class="serif-h" id="clerkAuthTitle">Ienākt</h3><p id="clerkAuthIntro">Droša autentifikācija ar Clerk.</p></div>
+    <div class="auth-origin-warning" id="clerkAuthOriginWarning" hidden>Lai autentifikācija darbotos, atver vietni ar <b>https://</b> vai palaid to lokāli ar <b>npx serve</b> / <b>vercel dev</b>. Atverot <b>index.html</b> ar dubultklikšķi, pārlūks izmanto <b>file://</b>, un Clerk autentifikāciju nevar pabeigt.</div>
+    <div class="clerk-mount" id="clerkMount"></div>
+  </div>
+</div>
+
+<div class="modal-scrim" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle"><div class="modal legal-modal"><button type="button" class="modal-close icon-btn" onclick="closeModal('legalModal')" aria-label="Aizvērt informāciju"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button><p class="eyebrow" id="legalEyebrow">Informācija</p><h3 class="serif-h" id="legalTitle"></h3><div id="legalBody" class="legal-body"></div></div></div>
+
+<div class="modal-scrim" id="cookieSettingsModal" role="dialog" aria-modal="true" aria-labelledby="cookieSettingsTitle"><div class="modal"><button type="button" class="modal-close icon-btn" onclick="closeModal('cookieSettingsModal')" aria-label="Aizvērt sīkdatņu iestatījumus"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button><p class="eyebrow">Privātums</p><h3 class="serif-h" id="cookieSettingsTitle">Sīkdatņu iestatījumi</h3><label class="check-row"><input type="checkbox" checked disabled><span>Nepieciešamās</span></label><label class="check-row"><input id="ckAnalytics" type="checkbox" disabled><span>Statistika un lietošanas dati (šobrīd nav aktīvi)</span></label><button type="button" class="btn btn-solid btn-block" onclick="acceptCookies('necessary');closeModal('cookieSettingsModal')">Saglabāt izvēli</button></div></div>
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Sīkdatņu paziņojums"><p>Šobrīd netiek izmantota neobligāta analītika vai reklāmas izsekošana. Vietne izmanto tikai nepieciešamo lokālo glabāšanu grozam, valodai un drošai darbībai.</p><div><a class="btn btn-quiet" href="#cookie-policy" onclick="event.preventDefault();openLegal('cookies')">Uzzināt vairāk</a><button type="button" class="btn btn-solid" onclick="acceptCookies('necessary')">Turpināt</button></div></div>
+<button type="button" class="back-to-top" id="backToTop" aria-label="Atgriezties lapas augšpusē" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></button>
+<button type="button" class="chatbot-fab" onclick="toggleChatbot()" aria-label="Atvērt palīgu" aria-expanded="false" aria-controls="chatbotPanel"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span class="chatbot-fab-text" data-i18n="chatbotFab">Palīgs</span></button><div class="chatbot-panel" id="chatbotPanel" role="dialog" aria-label="SportaBiedrs palīgs"><div class="chatbot-head"><div><b>SportaBiedrs palīgs</b><span>Atbild, balstoties uz lapas datiem</span></div><button type="button" class="modal-close-sm" aria-label="Aizvērt palīgu" onclick="closeChatbotPanel()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div><div class="chatbot-body" id="chatbotBody"></div><form class="chatbot-input" onsubmit="sendBotMsg(event)"><input id="chatbotInput" placeholder="Piem., Cik maksā Casall Yoga Mat?" aria-label="Jautājums palīgam"><button type="submit" aria-label="Nosūtīt ziņu"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button></form></div><div id="toast" class="toast"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script><script src="https://js.stripe.com/v3/" defer></script><script src="./app.js?v=45" defer></script>
+</body></html>
