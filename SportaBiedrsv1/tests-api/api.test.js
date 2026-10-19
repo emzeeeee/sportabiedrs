@@ -121,3 +121,14 @@ test('static pages and clean URLs work', async () => {
   assert.equal((await realFetch(base + '/nope')).status, 404);
   for (const p of ['/.env', '/scripts/serve.js', '/api/_lib/catalog.json', '/env.example', '/package-lock.json']) assert.equal((await realFetch(base + p)).status, 404, p);
 });
+
+test('every self-hosted font referenced in tokens.css exists and is served', async () => {
+  const css = require('node:fs').readFileSync(require('node:path').join(__dirname, '../tokens.css'), 'utf8');
+  const files = [...new Set([...css.matchAll(/url\('(assets\/fonts\/[^']+\.woff2)'\)/g)].map((m) => m[1]))];
+  assert.ok(files.length >= 9, 'expected the font files to be referenced');
+  for (const f of files) {
+    const r = await realFetch(`${base}/${f}`);
+    assert.equal(r.status, 200, f);
+    assert.ok((await r.arrayBuffer()).byteLength > 5000, `${f} looks empty`);
+  }
+});
