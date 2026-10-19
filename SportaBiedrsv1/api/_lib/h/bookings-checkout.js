@@ -4,11 +4,11 @@
  * Holds the slot for 15 minutes, creates a Stripe PaymentIntent with the SERVER price
  * and returns { clientSecret, bookingId, expiresAt } for Stripe's Payment Element. */
 
-const { send, readJson, rateLimit, clean, isEmail, handler } = require('../_lib/http');
-const db = require('../_lib/db');
-const { requireUser } = require('../_lib/auth');
-const { stripe, configured } = require('../_lib/stripe');
-const { validateSlot, createHold } = require('../_lib/booking');
+const { send, readJson, rateLimit, clean, isEmail, handler } = require('../http');
+const db = require('../db');
+const { requireUser } = require('../auth');
+const { stripe, configured } = require('../stripe');
+const { validateSlot, createHold } = require('../booking');
 
 module.exports = handler(['POST'], async (req, res) => {
   if (!db.configured()) throw db.notConfigured();

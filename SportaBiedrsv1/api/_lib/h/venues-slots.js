@@ -1,10 +1,10 @@
 'use strict';
 /* GET /api/venues/:id/slots?date=YYYY-MM-DD -> [{ start, end, courtId, available, priceCents }] in venue-local time. */
 
-const { send, handler, rateLimit } = require('../../_lib/http');
-const db = require('../../_lib/db');
-const { slotsFor } = require('../../_lib/booking');
-const { isDate } = require('../../_lib/time');
+const { send, handler, rateLimit } = require('../http');
+const db = require('../db');
+const { slotsFor } = require('../booking');
+const { isDate } = require('../time');
 
 module.exports = handler(['GET'], async (req, res) => {
   if (!db.configured()) throw db.notConfigured();

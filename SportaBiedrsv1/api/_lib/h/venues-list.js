@@ -2,8 +2,8 @@
 /* GET /api/venues -> venues that can be booked online (enabled by an admin AND with at least one court).
  * The frontend matches these to map pins by name. An empty list keeps the old behaviour. */
 
-const { send, handler } = require('../_lib/http');
-const db = require('../_lib/db');
+const { send, handler } = require('../http');
+const db = require('../db');
 
 module.exports = handler(['GET'], async (_req, res) => {
   if (!db.configured()) return send(res, 200, [], { 'Cache-Control': 'public, s-maxage=60' });

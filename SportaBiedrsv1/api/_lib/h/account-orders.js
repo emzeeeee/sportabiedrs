@@ -1,9 +1,9 @@
 'use strict';
 /* GET /api/orders -> the signed-in user's shop orders with items, newest first. */
 
-const { send, handler } = require('./_lib/http');
-const db = require('./_lib/db');
-const { requireUser } = require('./_lib/auth');
+const { send, handler } = require('../http');
+const db = require('../db');
+const { requireUser } = require('../auth');
 
 module.exports = handler(['GET'], async (req, res) => {
   if (!db.configured()) throw db.notConfigured();

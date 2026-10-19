@@ -44,5 +44,27 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/bookings/checkout",
+      "destination": "/api/bookings?op=checkout"
+    },
+    {
+      "source": "/api/bookings/cancel",
+      "destination": "/api/bookings?op=cancel"
+    },
+    {
+      "source": "/api/me",
+      "destination": "/api/account?view=me"
+    },
+    {
+      "source": "/api/orders",
+      "destination": "/api/account?view=orders"
+    },
+    {
+      "source": "/api/venues/:id/slots",
+      "destination": "/api/venues?id=:id"
+    }
   ]
 }

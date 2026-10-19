@@ -1,9 +1,9 @@
 'use strict';
 /* GET /api/me -> creates your account record on first sign-in and returns your profile + counts. */
 
-const { send, handler } = require('./_lib/http');
-const db = require('./_lib/db');
-const { requireUser } = require('./_lib/auth');
+const { send, handler } = require('../http');
+const db = require('../db');
+const { requireUser } = require('../auth');
 
 module.exports = handler(['GET'], async (req, res) => {
   if (!db.configured()) throw db.notConfigured();

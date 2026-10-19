@@ -63,3 +63,5 @@ Rules: 15 min payment hold, no double booking (row lock), bookable 30 min to 60 
 
 ## Not built yet
 Email reminders before a booking, club self-service dashboard, and admin screens (admin is API-only for now).
+
+**Function limit:** Vercel's free (Hobby) plan allows 12 serverless functions. The API is deliberately 11 files; related calls share one file and `vercel.json` rewrites keep the public URLs (`/api/bookings/checkout`, `/api/me`, `/api/venues/:id/slots`, …). Shared code lives in `api/_lib/` (not counted). Keep it at 12 or fewer.

@@ -140,3 +140,14 @@ test('new pages are served and the dev server still hides private files', async 
   assert.equal(await get('/club-register.html'), 200);
   assert.equal(await get('/api/_lib/db.js'), 404);
 });
+
+test('stays within the Vercel Hobby limit of 12 serverless functions', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const count = (dir) => fs.readdirSync(dir, { withFileTypes: true }).reduce((n, e) => {
+    if (e.name.startsWith('_')) return n;
+    const p = path.join(dir, e.name);
+    return n + (e.isDirectory() ? count(p) : e.name.endsWith('.js') ? 1 : 0);
+  }, 0);
+  assert.ok(count(path.join(__dirname, '..', 'api')) <= 12);
+});

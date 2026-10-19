@@ -1,11 +1,11 @@
 'use strict';
 /* GET /api/bookings -> the signed-in user's bookings, newest first. */
 
-const { send, handler } = require('../_lib/http');
-const db = require('../_lib/db');
-const { requireUser } = require('../_lib/auth');
-const { hhmm } = require('../_lib/time');
-const { CANCEL_HOURS } = require('../_lib/booking');
+const { send, handler } = require('../http');
+const db = require('../db');
+const { requireUser } = require('../auth');
+const { hhmm } = require('../time');
+const { CANCEL_HOURS } = require('../booking');
 
 module.exports = handler(['GET'], async (req, res) => {
   if (!db.configured()) throw db.notConfigured();

@@ -34,6 +34,20 @@ function resolveFile(urlPath) {
 }
 
 /** Maps /api/a/b to api/a/b.js, api/a/b/index.js, or dynamic folders like api/venues/[id]/slots.js. */
+/* Same rewrites as vercel.json, so local runs and tests behave like production. */
+const REWRITES = (() => { try { return JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8')).rewrites || []; } catch { return []; } })();
+function applyRewrite(url) {
+  for (const r of REWRITES) {
+    const names = [];
+    const re = new RegExp('^' + r.source.replace(/:([A-Za-z0-9_]+)/g, (_m, n) => { names.push(n); return '([^/]+)'; }) + '$');
+    const m = re.exec(url.pathname);
+    if (!m) continue;
+    const dest = new URL(r.destination.replace(/:([A-Za-z0-9_]+)/g, (_x, n) => encodeURIComponent(m[names.indexOf(n) + 1] || '')), 'http://x');
+    return { pathname: dest.pathname, query: Object.fromEntries(dest.searchParams) };
+  }
+  return { pathname: url.pathname, query: {} };
+}
+
 function resolveApi(rel) {
   const segs = rel.split('/').filter(Boolean);
   if (!segs.length || segs.some((s) => !/^[A-Za-z0-9_-]+$/.test(s) || s.startsWith('_'))) return null;
@@ -73,10 +87,11 @@ function resolveApi(rel) {
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   if (url.pathname.startsWith('/api/')) {
-    const match = resolveApi(url.pathname.slice(5));
+    const rw = applyRewrite(url);
+    const match = resolveApi(rw.pathname.slice(5));
     if (!match) { res.statusCode = 404; res.setHeader('Content-Type', 'application/json'); return res.end('{"error":"Not found"}'); }
     // Vercel gives every function req.query = search params + dynamic route params.
-    req.query = { ...Object.fromEntries(url.searchParams), ...match.params };
+    req.query = { ...Object.fromEntries(url.searchParams), ...rw.query, ...match.params };
     delete require.cache[require.resolve(match.file)];
     try { return await require(match.file)(req, res); } catch (e) { console.error(e); res.statusCode = 500; return res.end('{"error":"Server error"}'); }
   }
