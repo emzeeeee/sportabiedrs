@@ -1,0 +1,9 @@
+scripts
+tests
+tests-api
+playwright.config.ts
+env.example
+env.booking.example
+package-lock.json
+node_modules
+.env*

@@ -1,0 +1,213 @@
+{
+  "wilson-pro-staff-97-v14": {
+    "name": "Wilson Pro Staff 97 v14 tenisa rakete",
+    "cents": 27200,
+    "variants": [
+      "G2 (4 1/4\")",
+      "G3 (4 3/8\")",
+      "G4 (4 1/2\")"
+    ]
+  },
+  "head-radical-mp": {
+    "name": "Head Radical MP tenisa rakete",
+    "cents": 21900,
+    "variants": [
+      "G2 (4 1/4\")",
+      "G3 (4 3/8\")",
+      "G4 (4 1/2\")"
+    ]
+  },
+  "adidas-adipower-padel-33": {
+    "name": "Adidas Adipower Multiweight 3.3 padel rakete",
+    "cents": 22000,
+    "variants": []
+  },
+  "babolat-technical-viper": {
+    "name": "Babolat Technical Viper padel rakete",
+    "cents": 29600,
+    "variants": []
+  },
+  "wilson-evolution-basketball": {
+    "name": "Wilson Evolution basketbola bumba",
+    "cents": 5490,
+    "variants": []
+  },
+  "spalding-tf1000-basketball": {
+    "name": "Spalding TF-1000 basketbola bumba",
+    "cents": 4990,
+    "variants": []
+  },
+  "nike-strike-football": {
+    "name": "Nike Strike futbola bumba",
+    "cents": 3490,
+    "variants": []
+  },
+  "bauer-supreme-m5-pro-skates": {
+    "name": "Bauer Supreme M5 Pro slidas",
+    "cents": 47900,
+    "variants": [
+      "EU 40.5",
+      "EU 42",
+      "EU 43",
+      "EU 44.5",
+      "EU 45.5"
+    ]
+  },
+  "ccm-tacks-as580-skates": {
+    "name": "CCM Tacks AS580 hokeja slidas",
+    "cents": 35999,
+    "variants": [
+      "EU 40.5",
+      "EU 42",
+      "EU 43",
+      "EU 44.5",
+      "EU 45.5"
+    ]
+  },
+  "mikasa-v200w-volleyball": {
+    "name": "Mikasa V200W volejbola bumba",
+    "cents": 6490,
+    "variants": []
+  },
+  "venum-challenger-30-gloves": {
+    "name": "Venum Challenger 3.0 boksa cimdi",
+    "cents": 5490,
+    "variants": [
+      "10 oz",
+      "12 oz",
+      "14 oz",
+      "16 oz"
+    ]
+  },
+  "everlast-pro-style-bag": {
+    "name": "Everlast Nevatear Heavy boksa maiss",
+    "cents": 8900,
+    "variants": []
+  },
+  "speedo-fastskin-goggles": {
+    "name": "Speedo Fastskin peldbrilles",
+    "cents": 3490,
+    "variants": []
+  },
+  "arena-powerskin-swimsuit": {
+    "name": "Arena Powerskin peldkostīms",
+    "cents": 7490,
+    "variants": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ]
+  },
+  "nike-pegasus-41-shoes": {
+    "name": "Nike Pegasus 41 skriešanas apavi",
+    "cents": 14999,
+    "variants": [
+      "40",
+      "41",
+      "42",
+      "42.5",
+      "43",
+      "44",
+      "45"
+    ]
+  },
+  "garmin-forerunner-265-watch": {
+    "name": "Garmin Forerunner 265 viedpulkstenis",
+    "cents": 39900,
+    "variants": []
+  },
+  "trek-marlin-7": {
+    "name": "Trek Marlin 7 kalnu velosipēds",
+    "cents": 89900,
+    "variants": [
+      "M (165-176 cm)",
+      "M/L (173-180 cm)",
+      "L (177-188 cm)"
+    ]
+  },
+  "giro-syntax-helmet": {
+    "name": "Giro Syntax velo ķivere",
+    "cents": 11900,
+    "variants": [
+      "S (51-55 cm)",
+      "M (55-59 cm)",
+      "L (59-63 cm)"
+    ]
+  },
+  "casall-yoga-mat-balance": {
+    "name": "Casall Yoga Mat Balance 4mm",
+    "cents": 3800,
+    "variants": []
+  },
+  "innova-star-destroyer": {
+    "name": "Innova Star Destroyer disku golfa disks",
+    "cents": 1990,
+    "variants": []
+  },
+  "discraft-buzzz": {
+    "name": "Discraft Buzzz midrange disks",
+    "cents": 1850,
+    "variants": []
+  },
+  "yonex-astrox-88d-pro": {
+    "name": "Yonex Astrox 88D Pro badmintona rakete",
+    "cents": 18990,
+    "variants": [
+      "G4",
+      "G5"
+    ]
+  },
+  "babolat-pure-drive-2024": {
+    "name": "Babolat Pure Drive 2024 tenisa rakete",
+    "cents": 22900,
+    "variants": [
+      "G2 (4 1/4\")",
+      "G3 (4 3/8\")",
+      "G4 (4 1/2\")"
+    ]
+  },
+  "wilson-us-open-balls": {
+    "name": "Wilson US Open tenisa bumbiņas (4 gab.)",
+    "cents": 990,
+    "variants": []
+  },
+  "bullpadel-hack-03-bag": {
+    "name": "Bullpadel Hack 03 termo padel soma",
+    "cents": 7990,
+    "variants": []
+  },
+  "nike-mercurial-superfly-academy": {
+    "name": "Nike Zoom Mercurial Superfly buči",
+    "cents": 8999,
+    "variants": [
+      "40",
+      "41",
+      "42",
+      "42.5",
+      "43",
+      "44",
+      "45"
+    ]
+  },
+  "bowflex-selecttech-552": {
+    "name": "Bowflex SelectTech 552 hanteles (pāris)",
+    "cents": 34900,
+    "variants": []
+  },
+  "speedo-biofuse-power-fins": {
+    "name": "Speedo Biofuse 2.0 treniņu pleznas",
+    "cents": 3990,
+    "variants": [
+      "39-40",
+      "41-42",
+      "43-44",
+      "45-46"
+    ]
+  },
+  "spalding-tf-trainer-ball": {
+    "name": "Spalding TF-Trainer svērtā bumba",
+    "cents": 5900,
+    "variants": []
+  }
+}

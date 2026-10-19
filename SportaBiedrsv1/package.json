@@ -1,25 +1,25 @@
 {
   "name": "sportabiedrsv1",
   "version": "1.0.0",
-  "description": "",
+  "description": "SportaBiedrs.lv - sports partners, venues and equipment (static site + Vercel serverless API)",
   "main": "index.js",
   "scripts": {
     "serve": "node scripts/serve.js",
-    "test": "playwright test",
-    "catalog": "node scripts/build_catalog.js"
+    "catalog": "node scripts/build_catalog.js",
+    "test": "npm run test:api",
+    "test:api": "node --test tests-api/*.test.js",
+    "test:e2e": "playwright test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
     "@types/node": "^26.6.2"
   },
-  "dependencies": {
-    "clsx": "^2.1.1",
-    "framer-motion": "^14.0.0",
-    "lucide-react": "^1.51.0",
-    "tailwind-merge": "^3.7.0"
+  "dependencies": {},
+  "private": true,
+  "engines": {
+    "node": ">=20"
   }
 }
